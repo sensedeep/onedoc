@@ -1,5 +1,8 @@
 OneTable can emit detailed CloudWatch custom metrics to track DynamoDB performance and usage on a per app/function, index, entity model and operation basis.  
 
+[SenseDeep](https://www.sensedeep.com) can present and analyze these metrics to gain insights and visualizations into how your single-table designs are performing.
+
+## CloudWatch EMF
 The metrics are emitted using the CloudWatch EMF format with dimensions for: Table, Source, Index, Model and Operation.
 
 The following metrics are emitted for each dimension combination:
@@ -11,7 +14,7 @@ The following metrics are emitted for each dimension combination:
 * scanned — Number of items scanned
 * requests — Number of API requests issued
 
-SenseDeep and other tools can present and analyze these metrics to gain insights and graph into how your single-table designs are performing.
+## Metrics Params
 
 The properties of Table constructor `params.metrics` property are:
 
@@ -29,6 +32,8 @@ The properties of Table constructor `params.metrics` property are:
 | source | `string` | Name of application or function name that is calling DynamoDB. Default to the Lambda function name.|
 | tenant | `string` | Set to an identifying string for the customer or tenant. Defaults to null.|
 
+## Dynamic Control
+
 Metrics can be dynamically controlled by the LOG_FILTER environment variable. If this environment variable contains the string `dbmetrics` and the `env` params is set to true, then Metrics will be enabled. If the `env` parameter is unset, LOG_FILTER will be ignored.
 
 ```javascript
@@ -36,6 +41,8 @@ const table = new Table({
     metrics: {source: 'acme:launcher', env: true}
 })
 ```
+
+## Profiled Queries
 
 You can also generate metrics for specially profiled queries and scans via the `params.profile` tag. The profile param takes a unique string tag and metrics will be created for the dimensions [Profile, profile-tag-name]. These metrics exist outside the standard dimensions specified via the Metrics `dimensions` parameter.
 
@@ -49,7 +56,7 @@ The metrics can be viewed in CloudWatch or best via the free [SenseDeep Develope
 
 ![Single Table Monitoring](https://www.sensedeep.com/images/sensedeep/table-single.png).
 
-#### Metrics Under the Hood
+## Metrics Under the Hood
 
 The metric are emitted using [CloudWatch EMF](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html) via the `metrics` method. This permits zero-latency creation of metrics without impacting the performance of your Lambdas.
 

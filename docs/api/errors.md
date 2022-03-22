@@ -1,6 +1,4 @@
 
-## OneTableError
-
 API errors will throw an instance of the `OneTableError` class. This instance has the following properties:
 
 * message &mdash; Text error message.

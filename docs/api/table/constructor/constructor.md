@@ -1,4 +1,18 @@
 
+The Table class is used to create an instance for each DynamoDB table you wish to access.
+
+For each table, you define the table name, an AWS DynamoDB client connection object and a schema that defines your data model.
+
+```javascript
+import {Table} from 'dynamodb-onetable'
+
+const table = new Table({
+    client: DocumentClientInstance,
+    name: 'MyTable',
+    schema: Schema,
+})
+```
+
 The Table constructor takes a parameter of type `object` with the following properties:
 
 | Property | Type | Description |
@@ -19,6 +33,6 @@ The `client` property must be an initialized [AWS DocumentClient](https://docs.a
 
 By default, OneTable will not write `null` values to the database rather, it will remove the corresponding attribute from the item. If you set the `nulls` property to true, `null` values will be written via `create` or `update`. You can also define `nulls` on a model attribute basis via the schema.
 
-The `metrics` property may be set to a map that configures detailed CloudWatch EMF metrics.
+The `metrics` property may be set to a map that configures detailed CloudWatch EMF metrics. See [Metrics](../metrics/) for more information.
 
-See [Metrics](../metrics/) for more details.
+The `schema` property must be set to your OneTable schema that defines your data model. See [Schemas](../schemas/) for details.

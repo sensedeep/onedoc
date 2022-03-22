@@ -1,6 +1,15 @@
 OneTable can log complete request parameters and responses to assist you in debugging and understanding how your API requests are being translated to DynamoDB.
 
-You can set `logger` parameter to `true` for simple logging to the console. Alternatively, the `logger` may be set to logging callback that will be invoked as required to log data. The logger function has the signature:
+You can set the Table constructor `logger` property to `true` for simple logging to the console.
+
+```javascript
+const table = new Table({
+    ...
+    logger: true,
+})
+```
+
+Alternatively, the `logger` may be set to logging callback that will be invoked as required to log data. The logger function has the signature:
 
 ```javascript
 const table = new Table({
@@ -21,7 +30,7 @@ If you use {log: true} in the various OneTable Model API options, the more verbo
 
 #### SenseLogs
 
-OneTable also integrates with [SenseLogs](https://www.npmjs.com/package/senselogs) which is a simple, dynamic logger designed for serverless.
+OneTable also integrates with [SenseLogs](https://www.npmjs.com/package/senselogs) which is a fast dynamic logger designed for serverless.
 
 ```javascript
 import SenseLogs from 'senselogs'

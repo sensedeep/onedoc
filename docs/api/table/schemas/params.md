@@ -9,3 +9,14 @@ The `schema.params` is a hash map of properties that control how data is stored.
 | timestamps | `boolean` | Make "created" and "updated" timestamps in items. Default false. |
 | typeField | `string` | Name of the "type" attribute. Default "_type". |
 | updatedField | `string` | Name of the "updated" timestamp attribute. Default "updated". |
+
+For example:
+
+```javascript
+const MySchema = {
+    params: {
+        isoDates: true,
+        timestamps: true,
+    }
+}
+```

@@ -19,7 +19,7 @@ If a value inside `{}` is a number, it will be typed as a number for DynamoDB. T
 
 Note: the property name is an unmapped schema property name and not a mapped attribute name.
 
-Substutions also support a `splat` syntax for use with filterExpressions and the `IN` operator.
+Substitutions also support a `splat` syntax for use with filterExpressions and the `IN` operator.
 
 With this syntax, the list is expanded in-situ and each list item is defined as a separate ExpressionAttributeValue.
 
@@ -30,23 +30,22 @@ let adminUsers = await User.find({}, {
         roles: ['user', 'admin']
     }
 })
+```
 
-##### Where Clause Operators
+## Where Clause Operators
 
 You can use the following operators with a `where` clause:
 
-```javascript
-< <= = <> >= >
-AND OR NOT BETWEEN IN
-()
-attribute_exists()
-attribute_not_exists()
-attribute_type()
-begins_with()
-contains()
-not_contains()
-size
-```
+* < <= = <> >= >
+* AND OR NOT BETWEEN IN
+* ()
+* attribute_exists()
+* attribute_not_exists()
+* attribute_type()
+* begins_with()
+* contains()
+* not_contains()
+* size
 
 Where clauses when used with `find` or `scan` on non-key attribugtes can also use the `<>` not equals operator.
 

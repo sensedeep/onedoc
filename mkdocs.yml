@@ -32,6 +32,12 @@ nav:
         - Transforms: api/table/constructor/transforms.md
         - Value Templates: api/table/constructor/templates.md
         - Validations: api/table/constructor/validations.md
+      - Schemas:
+        - Data Modeling: api/table/schemas/modeling.md
+        - Indexes: api/table/schemas/indexes.md
+        - Params: api/table/schemas/params.md
+        - Models: api/table/schemas/models.md
+        - Model Attributes: api/table/schemas/attributes.md
       - Contexts: api/table/contexts.md
       - Methods: api/table/methods.md
       - Examples: api/table/examples.md
@@ -41,12 +47,6 @@ nav:
       - Methods: api/model/methods.md
       - Where Clauses: api/model/where.md
       - Examples: api/model/examples.md
-    - Schemas:
-      - Overview: schemas/overview.md
-      - Attributes: schemas/attributes.md
-      - Indexes: schemas/indexes.md
-      - Params: schemas/params.md
-      - Models: schemas/models.md
     - Dynamo Class:
       - Constructor: api/dynamo/overview.md
     - Error Handling: api/errors.md

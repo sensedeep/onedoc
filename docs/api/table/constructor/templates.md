@@ -1,4 +1,6 @@
-Value templates are defined in the schema for model fields. These are typically literal strings with property variable references. In some use cases, more complex logic for a value template requires a function to calculate the property value at runtime. The Table constructor params.value function provides a centralized place to evaluate value templates. It will be invoked for fields that define their value template to be `true`.
+Value templates are defined in the schema for model fields. These are typically literal strings with property variable references. In some use cases, more complex logic for a value template requires a function to calculate the property value at runtime.
+
+The Table constructor `params.value` function provides a centralized place to evaluate value templates. It will be invoked for fields that define their value template to be `true`.
 
 The value template function is called with the signature:
 
