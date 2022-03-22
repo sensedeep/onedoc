@@ -1,0 +1,2432 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>Methods - SenseDeep DynamoDB OneTable</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/all.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#addcontext" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+  <a href="https://twitter.com/sensedeepcloud">
+    For updates follow <strong>@sensedeepcloud</strong> on <span class="twemoji twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </span>
+    <strong>Twitter</strong>
+  </a>
+
+          </div>
+        </aside>
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SenseDeep DynamoDB OneTable" class="md-header__button md-logo" aria-label="SenseDeep DynamoDB OneTable" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SenseDeep DynamoDB OneTable
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Methods
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sensedeep/dynamodb-onetable" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../start/quick-tour/" class="md-tabs__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../overview/" class="md-tabs__link md-tabs__link--active">
+        API
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../extensions/" class="md-tabs__link">
+      Extensions
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../start/contribute/" class="md-tabs__link">
+      Contribute
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../start/contact/" class="md-tabs__link">
+      Contact
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../services/help/" class="md-tabs__link">
+      Services
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://www.sensedeep.com/blog" class="md-tabs__link">
+      Blog
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SenseDeep DynamoDB OneTable" class="md-nav__button md-logo" aria-label="SenseDeep DynamoDB OneTable" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SenseDeep DynamoDB OneTable
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sensedeep/dynamodb-onetable" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/quick-tour/" class="md-nav__link">
+        Quick Tour
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/install/" class="md-nav__link">
+        Installing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/configure/" class="md-nav__link">
+        Configuring
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/modeling/" class="md-nav__link">
+        Data Modeling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/typescript/" class="md-nav__link">
+        Typescript
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          Background
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Background" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Background
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/why-onetable/" class="md-nav__link">
+        Why OneTable?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/features/" class="md-nav__link">
+        Features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/samples/" class="md-nav__link">
+        Samples
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/references/" class="md-nav__link">
+        References
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Table Class
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Table Class" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Table Class
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_2" type="checkbox" id="__nav_3_1_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1_2">
+          Constructor
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Constructor" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Constructor
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constructor/constructor/" class="md-nav__link">
+        Constructor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constructor/crypto/" class="md-nav__link">
+        Crypto
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constructor/logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constructor/metrics/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constructor/schemas/" class="md-nav__link">
+        Schemas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constructor/transforms/" class="md-nav__link">
+        Transforms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constructor/templates/" class="md-nav__link">
+        Value Templates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constructor/validations/" class="md-nav__link">
+        Validations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contexts/" class="md-nav__link">
+        Contexts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Methods
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Methods
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#addcontext" class="md-nav__link">
+    addContext
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#addmodel" class="md-nav__link">
+    addModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batchget" class="md-nav__link">
+    batchGet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batchwrite" class="md-nav__link">
+    batchWrite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clearcontext" class="md-nav__link">
+    clearContext
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    create
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createtable" class="md-nav__link">
+    createTable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleteitem" class="md-nav__link">
+    deleteItem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletetable" class="md-nav__link">
+    deleteTable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exists" class="md-nav__link">
+    exists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetch" class="md-nav__link">
+    fetch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find" class="md-nav__link">
+    find
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getcontext" class="md-nav__link">
+    getContext
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getcurrentschema" class="md-nav__link">
+    getCurrentSchema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getlog" class="md-nav__link">
+    getLog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getkeys" class="md-nav__link">
+    getKeys
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getitem" class="md-nav__link">
+    getItem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getmodel" class="md-nav__link">
+    getModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupbytype" class="md-nav__link">
+    groupByType
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listmodels" class="md-nav__link">
+    listModels
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listtables" class="md-nav__link">
+    listTables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putitem" class="md-nav__link">
+    putItem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryitems" class="md-nav__link">
+    queryItems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readschema" class="md-nav__link">
+    readSchema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readschemas" class="md-nav__link">
+    readSchemas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    remove
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removemodel" class="md-nav__link">
+    removeModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeschema" class="md-nav__link">
+    removeSchema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saveschema" class="md-nav__link">
+    saveSchema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scanitems" class="md-nav__link">
+    scanItems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setclient" class="md-nav__link">
+    setClient
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setcontext" class="md-nav__link">
+    setContext
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setschema" class="md-nav__link">
+    setSchema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transact" class="md-nav__link">
+    transact
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    update
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updateitem" class="md-nav__link">
+    updateItem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updatetable" class="md-nav__link">
+    updateTable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuid" class="md-nav__link">
+    UUID
+  </a>
+  
+    <nav class="md-nav" aria-label="UUID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ulid" class="md-nav__link">
+    ULID
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Model Class
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Model Class" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Model Class
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/params/" class="md-nav__link">
+        API Parameters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/methods/" class="md-nav__link">
+        Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/where/" class="md-nav__link">
+        Where Clauses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../model/examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Schemas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schemas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Schemas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schemas/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schemas/attributes/" class="md-nav__link">
+        Attributes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schemas/indexes/" class="md-nav__link">
+        Indexes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schemas/params/" class="md-nav__link">
+        Params
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schemas/models/" class="md-nav__link">
+        Models
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Dynamo Class
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Dynamo Class" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Dynamo Class
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamo/overview/" class="md-nav__link">
+        Constructor
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../errors/" class="md-nav__link">
+        Error Handling
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../extensions/" class="md-nav__link">
+        Extensions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/contact/" class="md-nav__link">
+        Contact
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../services/help/" class="md-nav__link">
+        Services
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.sensedeep.com/blog" class="md-nav__link">
+        Blog
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#addcontext" class="md-nav__link">
+    addContext
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#addmodel" class="md-nav__link">
+    addModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batchget" class="md-nav__link">
+    batchGet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batchwrite" class="md-nav__link">
+    batchWrite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clearcontext" class="md-nav__link">
+    clearContext
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    create
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#createtable" class="md-nav__link">
+    createTable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleteitem" class="md-nav__link">
+    deleteItem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletetable" class="md-nav__link">
+    deleteTable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exists" class="md-nav__link">
+    exists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fetch" class="md-nav__link">
+    fetch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find" class="md-nav__link">
+    find
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getcontext" class="md-nav__link">
+    getContext
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getcurrentschema" class="md-nav__link">
+    getCurrentSchema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getlog" class="md-nav__link">
+    getLog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getkeys" class="md-nav__link">
+    getKeys
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getitem" class="md-nav__link">
+    getItem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getmodel" class="md-nav__link">
+    getModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupbytype" class="md-nav__link">
+    groupByType
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listmodels" class="md-nav__link">
+    listModels
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listtables" class="md-nav__link">
+    listTables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#putitem" class="md-nav__link">
+    putItem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryitems" class="md-nav__link">
+    queryItems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readschema" class="md-nav__link">
+    readSchema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readschemas" class="md-nav__link">
+    readSchemas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    remove
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removemodel" class="md-nav__link">
+    removeModel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#removeschema" class="md-nav__link">
+    removeSchema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saveschema" class="md-nav__link">
+    saveSchema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scanitems" class="md-nav__link">
+    scanItems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setclient" class="md-nav__link">
+    setClient
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setcontext" class="md-nav__link">
+    setContext
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setschema" class="md-nav__link">
+    setSchema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transact" class="md-nav__link">
+    transact
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    update
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updateitem" class="md-nav__link">
+    updateItem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updatetable" class="md-nav__link">
+    updateTable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuid" class="md-nav__link">
+    UUID
+  </a>
+  
+    <nav class="md-nav" aria-label="UUID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ulid" class="md-nav__link">
+    ULID
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>Methods</h1>
+
+<p>The Table API provides utility methods and low-level data API to manage DynamoDB. The low-level methods are: deleteItem, getItem, putItem, updateItem. Use these methods to do raw I/O on your table. In general, you should prefer the Model APIs that are based on their schema definition and provide a higher level of operation. The model methods are: create, get, find, remove and update.</p>
+<h2 id="addcontext">addContext</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>addContext(context = {})
+</code></pre></div>
+</td></tr></table>
+<p>Add the table <code>context</code> properties. The context properties are merged with (overwrite) the existing context.</p>
+<h2 id="addmodel">addModel</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>addModel(name, fields)
+</code></pre></div>
+</td></tr></table>
+<p>Add a new model to a table. This invokes the <code>Model</code> constructor and then adds the model to the table. The previously defined <code>Table</code> indexes are used for the model.</p>
+<h2 id="batchget">batchGet</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async batchGet(operation, params = {})
+</code></pre></div>
+</td></tr></table>
+<p>Invoke a prepared batch operation and return the results. Batches are prepared by creating a bare batch object <code>{}</code> and passing that via <code>params.batch</code> to the various OneTable APIs to build up a batched operation. Invoking <code>batch</code> will execute the accumulated API calls in a batch.</p>
+<p>The <code>batch</code> parameter should initially be set to <code>{}</code> and then be passed to API calls via <code>params.batch</code>.</p>
+<p>For example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">let</span> <span class="nx">batch</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">await</span> <span class="nx">Account</span><span class="p">.</span><span class="nx">get</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="nx">accountId</span><span class="p">},</span> <span class="p">{</span><span class="nx">batch</span><span class="p">})</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">get</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="nx">userId</span><span class="p">},</span> <span class="p">{</span><span class="nx">batch</span><span class="p">})</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kd">let</span> <span class="nx">results</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">batchGet</span><span class="p">(</span><span class="nx">batch</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Set batch params.consistent for a consistent read.</p>
+<p>If using params.fields to return a field set, you must provide actual attribute names in the field list and not mapped property names like when using normal Model params.fields.</p>
+<h2 id="batchwrite">batchWrite</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async batchWrite(batch, params = {})
+</code></pre></div>
+</td></tr></table>
+<p>Same as batchGet but for write operations.</p>
+<h2 id="clearcontext">clearContext</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>clearContext()
+</code></pre></div>
+</td></tr></table>
+<p>Clear the table context properties. The <code>Table</code> has a <code>context</code> of properties that are blended with <code>Model</code> properties before writing items to the database.</p>
+<h2 id="create">create</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async create(modelName, properties, params = {})
+</code></pre></div>
+</td></tr></table>
+<p>Create a new item in the database of the given model <code>modelName</code> as defined in the table schema.
+Wraps the <code>Model.create</code> API. See <a href="#model-create">Model.create</a> for details.</p>
+<h2 id="createtable">createTable</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async createTable(params)
+</code></pre></div>
+</td></tr></table>
+<p>Create a DynamoDB table based upon the needs of the specified OneTable schema. The table configuration can be augmented by supplying additional createTable configuration via the <code>params.provisioned</code>. See <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html#createTable-property">DynamoDB CreateTable</a> for details.</p>
+<h2 id="deleteitem">deleteItem</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async deleteItem(properties, params = {})
+</code></pre></div>
+</td></tr></table>
+<p>Delete an item in the database. This wraps the DynamoDB <code>deleteItem</code> method.</p>
+<p>The <code>properties</code> parameter is a Javascript hash containing the required keys or fields that are used to create the primary key.</p>
+<p>Additional fields supplied in <code>properties</code> may be used to construct a filter expression. In this case, a <code>find</code> query is first executed to identify the item to remove. Superfluous property fields will be ignored.</p>
+<p>The optional params are fully described in <a href="#model-api-params">Model API Params</a>. Some relevant params include:</p>
+<p>The <code>params.fields</code> may be set to a list of properties to return. This defines the ProjectionExpression. The properties must include the key attributes if you wish to use <code>params.prev</code> for reverse pagination.</p>
+<p>If <code>params.execute</code> is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.</p>
+<p>If <code>params.many</code> is set to true, the API may be used to delete more than one item. Otherwise, for safety, it is assume the API will only remove one item.</p>
+<p>The <code>params.where</code> clause may be used to define a filter expression. This will define a FilterExpression and the ExpressionAttributeNames and ExpressionAttributeValues. See <a href="#where-clauses">Where Clause</a> for more details.</p>
+<h2 id="deletetable">deleteTable</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async deleteTable(confirmation)
+</code></pre></div>
+</td></tr></table>
+<p>Delete a DynamoDB table. Because this is a destructive operation, a confirmation string of 'DeleteTableForever' must be provided.</p>
+<h2 id="exists">exists</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async exists()
+</code></pre></div>
+</td></tr></table>
+<p>Test if the table name exists in the database.</p>
+<h2 id="fetch">fetch</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async fetch(models, properties, params = {})
+</code></pre></div>
+</td></tr></table>
+<p>Fetch an item collection of items that share the same primary key. Models should be a list of model type names to return. The properties should provide the primary key shared by those model types. The return result is a map with items organized by their model type.</p>
+<p>For example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">fetch</span><span class="p">([</span><span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="s1">&#39;Product&#39;</span><span class="p">],</span> <span class="p">{</span><span class="nx">pk</span><span class="o">:</span> <span class="s1">&#39;account:AcmeCorp&#39;</span><span class="p">})</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kd">let</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">User</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kd">let</span> <span class="nx">products</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">Product</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="nx">users</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="cm">/* operate on user */</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="nx">products</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">product</span> <span class="p">=&gt;</span> <span class="cm">/* operate on product */</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="find">find</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async find(modelName, properties, params = {})
+</code></pre></div>
+</td></tr></table>
+<p>Find an item in the database of the given model <code>modelName</code> as defined in the table schema. Wraps the <code>Model.find</code> API. See <a href="#model-find">Model.find</a> for details.</p>
+<h2 id="get">get</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async get(modelName, properties, params = {})
+</code></pre></div>
+</td></tr></table>
+<p>Get an item in the database of the given model <code>modelName</code> as defined in the table schema. Wraps the <code>Model.get</code> API. See <a href="#model-get">Model.get</a> for details.</p>
+<h2 id="getcontext">getContext</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>getContext()
+</code></pre></div>
+</td></tr></table>
+<p>Return the current context properties.</p>
+<h2 id="getcurrentschema">getCurrentSchema</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>getCurrentSchema(): OneSchema
+</code></pre></div>
+</td></tr></table>
+<p>Return the schema currently used by the table.</p>
+<h2 id="getlog">getLog</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>getLog()
+</code></pre></div>
+</td></tr></table>
+<p>Return the current logger object.</p>
+<h2 id="getkeys">getKeys</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async getKeys()
+</code></pre></div>
+</td></tr></table>
+<p>Return the current primary table and global secondary index keys. Returns a map indexed by index name or 'primary'. The partition key property is named 'hash' and the sort key 'sort'.</p>
+<h2 id="getitem">getItem</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async getItem(properties, params = {})
+</code></pre></div>
+</td></tr></table>
+<p>Get an item from the database. This API wraps the DynamoDB <code>getItem</code> method.</p>
+<p>The <code>properties</code> parameter is a Javascript hash containing the required keys or fields that are used to create the primary key.</p>
+<p>Additional fields supplied in <code>properties</code> may be used to construct a filter expression. In this case, a <code>find</code> query is first executed to identify the item to retrieve. Superfluous property fields will be ignored.</p>
+<p>The <code>get</code> method returns Javascript properties for the item after applying any schema mappings. Hidden attributes will not be returned.</p>
+<p>The optional params are fully described in <a href="#model-api-params">Model API Params</a>. Some relevant params include:</p>
+<p>The <code>params.fields</code> may be set to a list of properties to return. This defines the ProjectionExpression.</p>
+<p>If <code>params.execute</code> is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.</p>
+<p>If <code>params.parse</code> is set to true, the results will be parsed and mapped into a set of Javascript properties. By default, the unmodified DynamoDB results are returned.</p>
+<p>The <code>params.where</code> clause may be used to define a filter expression. This will define a FilterExpression and the ExpressionAttributeNames and ExpressionAttributeValues. See <a href="#where-clauses">Where Clause</a> for more details.</p>
+<h2 id="getmodel">getModel</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>getModel(name)
+</code></pre></div>
+</td></tr></table>
+<p>Return a model for the given model name.</p>
+<h2 id="groupbytype">groupByType</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>groupByType(items)
+</code></pre></div>
+</td></tr></table>
+<p>Return the items grouped by the configured table typeField property. Returns a map indexed by type name.</p>
+<h2 id="listmodels">listModels</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>listModels()
+</code></pre></div>
+</td></tr></table>
+<p>Return a list of models defined on the <code>Table</code>.</p>
+<h2 id="listtables">listTables</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async listTables()
+</code></pre></div>
+</td></tr></table>
+<p>Return a list of tables in the database.</p>
+<h2 id="putitem">putItem</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async putItem(properties, params = {})
+</code></pre></div>
+</td></tr></table>
+<p>Create an item in the database. This API wraps the DynamoDB <code>putItem</code> method.</p>
+<p>The <code>properties</code> parameter is a Javascript hash containing all the required attributes for the item and must contain the required keys or fields that are used to create the primary key.</p>
+<p>OneTable will only write fields in <code>properties</code> that correspond to the schema attributes for the model. Superfluous property fields will be ignored.</p>
+<p>The property names are those described by the schema. NOTE: these are not the same as the attribute names stored in the Database. If a schema uses <code>map</code> to define a mapped attribute name, the Javascript field name and the DynamoDB attribute name may be different.</p>
+<p>The method returns the unmodified DynamoDB <code>put</code> response. If <code>params.parse</code> is set to true, it will return the Javascript properties created for the item with hidden attributes will not be returned.</p>
+<p>Before creating the item, all the properties will be validated according to any defined schema validations and all required properties will be checked. Similarly, properties that use a schema enum definition will be checked that their value is a valid enum value. Encrypted fields will be encrypted transparently before writing.</p>
+<p>The <code>params.fields</code> may be set to a list of properties to return. This defines the ProjectionExpression.</p>
+<p>If <code>params.execute</code> is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.</p>
+<p>If <code>params.parse</code> is set to true, the results will be parsed and mapped into a set of Javascript properties. Otherwise, the unmodified DynamoDB response will be returned.</p>
+<h2 id="queryitems">queryItems</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async queryItems(properties, params)
+</code></pre></div>
+</td></tr></table>
+<p>This API invokes the DynamoDB <code>query</code> API and return the results.</p>
+<p>The properties should include the relevant key properties.</p>
+<p>The sort key may be defined as a key condition by setting the property to an object that defines the condition. The condition operator is specified as the key, and the operand as the value.</p>
+<p>These operators may only be used with the sort key property. If the sort key uses a value template, you cannot use the operator on the sort key value directly and not on the properties that are referenced in the value template.</p>
+<p>For example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">let</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">queryItems</span><span class="p">({</span><span class="nx">pk</span><span class="p">,</span> <span class="nx">sk</span><span class="o">:</span> <span class="p">{</span><span class="nx">begins</span><span class="o">:</span> <span class="s1">&#39;user:john&#39;</span><span class="p">}})</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kd">let</span> <span class="nx">tickets</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">queryItems</span><span class="p">({</span><span class="nx">pk</span><span class="p">,</span> <span class="nx">sk</span><span class="o">:</span> <span class="p">{</span><span class="nx">between</span><span class="o">:</span> <span class="p">[</span><span class="mf">1000</span><span class="p">,</span> <span class="mf">2000</span><span class="p">]}})</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kd">let</span> <span class="nx">invoices</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">queryItems</span><span class="p">({</span><span class="nx">pk</span><span class="p">,</span> <span class="nx">sk</span><span class="o">:</span> <span class="p">{</span><span class="s1">&#39;&lt;=&#39;</span><span class="o">:</span> <span class="mf">1000</span><span class="p">}})</span>
+</code></pre></div>
+</td></tr></table>
+<p>The operators include:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="o">&lt;</span> <span class="o">&lt;=</span> <span class="o">=</span> <span class="o">&lt;&gt;</span> <span class="o">&gt;=</span> <span class="o">&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nx">begins</span> <span class="nx">or</span> <span class="nx">begins_with</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="nx">between</span>
+</code></pre></div>
+</td></tr></table>
+<!---
+For TypeScript, the OneTable creates strict typings on properties and so special steps are required for {beings}, {between} etc. For TypeScript, OneTable supports tunneling such values via the params. Alternatively, use the `Where Clause` formulation described below. For example:
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">let</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">queryItems</span><span class="p">({</span><span class="nx">pk</span><span class="p">},</span> <span class="p">{</span><span class="nx">tunnel</span><span class="o">:</span> <span class="p">{</span><span class="nx">begins</span><span class="o">:</span> <span class="p">{</span><span class="nx">sk</span><span class="o">:</span> <span class="s1">&#39;user:john&#39;</span><span class="p">}}})</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">let</span> <span class="nx">tickets</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">queryItems</span><span class="p">({</span><span class="nx">pk</span><span class="p">},</span> <span class="p">{</span><span class="nx">tunnel</span><span class="o">:</span> <span class="p">{</span><span class="nx">between</span><span class="o">:</span> <span class="p">{</span><span class="nx">sk</span><span class="o">:</span> <span class="p">[</span><span class="mf">1000</span><span class="p">,</span> <span class="mf">2000</span><span class="p">]}}})</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kd">let</span> <span class="nx">invoices</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">queryItems</span><span class="p">({</span><span class="nx">pk</span><span class="p">},</span> <span class="p">{</span><span class="nx">tunnel</span><span class="o">:</span> <span class="p">{</span><span class="s1">&#39;&lt;=&#39;</span><span class="o">:</span> <span class="p">{</span><span class="nx">sk</span>: <span class="kt">1000</span><span class="p">}}})</span>
+</code></pre></div>
+</td></tr></table>
+-->
+
+<p><strong>Filter Expressions</strong></p>
+<p>Non-key fields are used to construct a filter expression which is applied by DynamoDB after reading the data but before returning it to the caller. OneTable will utilize fields in <code>properties</code> that correspond to the schema attributes for the model. Superfluous property fields will be ignored in the filter expression.</p>
+<p>More complex filter expressions may be created via a <code>params.where</code> property. For example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">let</span> <span class="nx">invoices</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">queryItems</span><span class="p">({</span><span class="nx">pk</span><span class="p">},</span> <span class="p">{</span><span class="nx">where</span><span class="o">:</span> <span class="s1">&#39;${sk} &lt;= {1000}&#39;</span><span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
+<p>See <a href="#where-clauses">Where Clause</a> for more details.</p>
+<p>If <code>queryItems</code> is called without a sort key, <code>queryItems</code> will utilize the model type as a sort key prefix and return all matching model items. This can be used to fetch all items that match the primary hash key and are of the specified model type.</p>
+<p>The <code>queryItems</code> method returns an array of items after applying any schema mappings. Hidden attributes in items will not be returned.</p>
+<p>Some useful params for queryItems include:</p>
+<p>The <code>params.index</code> may be set to the desired index name.</p>
+<p>The <code>params.where</code> clause may be used to define a filter expression. This will define a FilterExpression and the ExpressionAttributeNames and ExpressionAttributeValues. See <a href="#where-clauses">Where Clause</a> for more details.</p>
+<p>The <code>params.fields</code> may be set to a list of properties to return. This defines the ProjectionExpression.</p>
+<p>If <code>params.execute</code> is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.</p>
+<p>If <code>params.parse</code> is set to true, the results will be parsed and mapped into a set of Javascript properties. Otherwise, the unmodified DynamoDB response will be returned.</p>
+<h2 id="readschema">readSchema</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async readSchema(): OneSchema
+</code></pre></div>
+</td></tr></table>
+<p>Read the <code>Current</code> schema from the table if it has been stored there via <code>saveSchema</code>.</p>
+<h2 id="readschemas">readSchemas</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async readSchemas(): OneSchema[]
+</code></pre></div>
+</td></tr></table>
+<p>Read all stored schemas from the table.</p>
+<h2 id="remove">remove</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async remove(modelName, properties, params = {})
+</code></pre></div>
+</td></tr></table>
+<p>Delete an item in the database of the given model <code>modelName</code> as defined in the table schema. Wraps the <code>Model.remove</code> API. See <a href="#model-remove">Model.remove</a> for details.</p>
+<h2 id="removemodel">removeModel</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>removeModel(name)
+</code></pre></div>
+</td></tr></table>
+<p>Remove a model from the current schema in use by the table. This does not impact the persisted schemas.</p>
+<h2 id="removeschema">removeSchema</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>removeSchema(schema)
+</code></pre></div>
+</td></tr></table>
+<p>Remove a schema from the persisted <code>Table</code> schema items. The schema should include a <code>name</code> property that describes the schema.</p>
+<h2 id="saveschema">saveSchema</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async saveSchema(schema?: OneSchema): OneSchema
+</code></pre></div>
+</td></tr></table>
+<p>Save the current schema to the table using the _Schema:_Schema hash/sort key pair.</p>
+<p>If the schema parameter is null or not provided, the currently configured schema will be saved.
+If a schema is provided and the schema.params is unset, the saved schema will include the current Table parms.</p>
+<h2 id="scanitems">scanItems</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async scanItems(params)
+</code></pre></div>
+</td></tr></table>
+<p>Invokes the DynamoDB <code>scan</code> API and return the results.</p>
+<p>Some relevant params include:</p>
+<p>The <code>params.where</code> clause may be used to define a filter expression. This will define a FilterExpression and the ExpressionAttributeNames and ExpressionAttributeValues. See <a href="#where-clauses">Where Clause</a> for more details.</p>
+<p>The <code>params.fields</code> may be set to a list of properties to return. This defines the ProjectionExpression.</p>
+<p>If <code>params.execute</code> is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.</p>
+<p>If <code>params.parse</code> is set to true, the results will be parsed and mapped into a set of Javascript properties. Otherwise, the unmodified DynamoDB response will be returned.</p>
+<p>The scan method supports parallel scan where you invoke scan simultaneously from multiple workers. Using the async/await pattern, you can start the workers and then use a Promise.all to wait for their completion.
+To perform parallel scans, you should set the <code>params.segments</code> to the number of parallel segements and the <code>params.segment</code> to the numeric segment to be scaned for that worker.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>const segments = 4
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>let promises = []
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>for (let segment = 0; segment &lt; segments; segment++) {
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    promises.push(table.scanItems({}, {segment, segments}))
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>}
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>let results = await Promise.all(promises)
+</code></pre></div>
+</td></tr></table>
+<h2 id="setclient">setClient</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>setClient(client)
+</code></pre></div>
+</td></tr></table>
+<p>Assign an AWS SDK V2 DocumentClient or AWS SDK V3 Dynamo helper client to be used for communiction with DynamoDB. Note the V3 DocumentClient instance is a native AWS SDK DocumentClient instance. For AWS SDK V3, the client is an instance of the OneTable Dynamo helper.</p>
+<h2 id="setcontext">setContext</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>setContext(context = {}, merge = false)
+</code></pre></div>
+</td></tr></table>
+<p>Set the table <code>context</code> properties. If <code>merge</code> is true, the properties are blended with the existing context.</p>
+<h2 id="setschema">setSchema</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async setSchema(schema?: OneSchema)
+</code></pre></div>
+</td></tr></table>
+<p>Set the current schema for the table instance. This will reset the current schema. If the schema parameter contains a schema.params, these will be applied and overwrite the current Table params.</p>
+<p>If the schema property is null, the current schema will be removed.</p>
+<h2 id="transact">transact</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async transact(operation, transaction, params = {})
+</code></pre></div>
+</td></tr></table>
+<p>Invoke a prepared transaction and return the results. Transactions are prepared by creating a bare transaction object <code>{}</code> and passing that via <code>params.transaction</code> to the various OneTable APIs to build up a transactional operation. Finally invoking <code>transact</code> will execute the accumulated API calls within a DynamoDB transaction.</p>
+<p>The <code>operation</code> parameter should be set to <code>write</code> or <code>get</code>.</p>
+<p>The <code>transaction</code> parameter should initially be set to <code>{}</code> and then be passed to API calls via <code>params.transaction</code>.</p>
+<p>A <code>get</code> operation will return an array containing the items retrieved.</p>
+<p>The <code>Table.groupBy</code> can be used to organize the returned items by model. E.g.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kd">let</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;Account&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="nx">accountId</span><span class="p">},</span> <span class="p">{</span><span class="nx">transaction</span><span class="p">})</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">id</span><span class="o">:</span> <span class="nx">userId</span><span class="p">},</span> <span class="p">{</span><span class="nx">transaction</span><span class="p">})</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">transact</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="nx">transaction</span><span class="p">,</span> <span class="p">{</span><span class="nx">parse</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">hidden</span><span class="o">:</span> <span class="kc">true</span><span class="p">})</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="nx">items</span> <span class="o">=</span> <span class="nx">table</span><span class="p">.</span><span class="nx">groupByType</span><span class="p">(</span><span class="nx">items</span><span class="p">)</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="kd">let</span> <span class="nx">accounts</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">Account</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="kd">let</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">User</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="update">update</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async update(modelName, properties, params = {})
+</code></pre></div>
+</td></tr></table>
+<p>Update an item in the database of the given model <code>modelName</code> as defined in the table schema. Wraps the <code>Model.update</code> API. See <a href="#model-update">Model.update</a> for details.</p>
+<h2 id="updateitem">updateItem</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async updateItem(properties, params)
+</code></pre></div>
+</td></tr></table>
+<p>Update an item in the database. This method wraps the DynamoDB <code>updateItem</code> API.</p>
+<p>The <code>properties</code> parameter is a Javascript hash containing properties to update including the required keys or fields that are used to create the primary key.</p>
+<p>OneTable will only update fields in <code>properties</code> that correspond to the schema attributes for the model. Superfluous property fields will be ignored.</p>
+<p>The property names are those described by the schema. NOTE: these are not the same as the attribute names stored in the Database. If a schema uses <code>map</code> to define a mapped attribute name, the Javascript field name and the DynamoDB attribute name may be different.</p>
+<p>The method returns the unmodified DynamoDB response. If <code>params.parse</code> is true, the call returns the Javascript properties for the item with hidden attributes removed.</p>
+<p>The optional params are described in <a href="#model-api-params">Model API Params</a>.   </p>
+<p>The <code>params.fields</code> may be set to a list of properties to return. This defines the ProjectionExpression.</p>
+<p>If <code>params.execute</code> is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.</p>
+<p>If <code>params.parse</code> is set to true, the results will be parsed and mapped into a set of Javascript properties. Otherwise, the unmodified DynamoDB response will be returned.</p>
+<h2 id="updatetable">updateTable</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async updateTable(params)
+</code></pre></div>
+</td></tr></table>
+<p>Update a table and create or remove a Global Secondary Index.  </p>
+<p>Set <code>params.create</code> to an index to create. Set <code>create</code> to a map with properties for the <code>hash</code> and <code>sort</code> attributes. E.g.</p>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">updateTable</span><span class="p">({</span><span class="nx">create</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>    <span class="nx">hash</span><span class="o">:</span> <span class="s1">&#39;gs1pk&#39;</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="nx">hash</span><span class="o">:</span> <span class="s1">&#39;gs2pk&#39;</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;gs1&#39;</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="p">}})</span>
+</code></pre></div>
+</td></tr></table>
+Set <code>params.remove</code> to remove an index. Set <code>remove</code> to a map with a <code>name</code> property of the table to remove. E.g.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">await</span> <span class="nx">table</span><span class="p">.</span><span class="nx">updateTable</span><span class="p">({</span><span class="nx">remove</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;gs1&#39;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">}})</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="uuid">UUID</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>uuid()
+</code></pre></div>
+</td></tr></table>
+<p>Internal routine to generate a simple, fast non-cryptographic UUID string. This routine is provided for use in the browser where Node crypto is not availble. The uuid function will generate IDs that have the same format as a UUID v4 string. However they are not crypto-grade in terms of uniqueness nor are they fully compliant in the composition of the UUID sub-components. In general, use <code>ulid</code> in preference to <code>uuid</code>.</p>
+<p>This routine</p>
+<h4 id="ulid">ULID</h4>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ulid()
+</code></pre></div>
+</td></tr></table>
+<p>Generate a <a href="https://github.com/ulid/spec">ULID</a>. Useful when you need a time-based sortable, cryptographic, unique sequential number. This is preferable to using <code>uuid</code>.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../contexts/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Contexts" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Contexts
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../examples/" class="md-footer__link md-footer__link--next" aria-label="Next: Examples" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Examples
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/sensedeep/dynamodb-onetable" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://facebook.com/sensedeepcloud" target="_blank" rel="noopener" title="facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://flipboard.com/@mobsense/serverless-developer-dlpuqmniz" target="_blank" rel="noopener" title="flipboard.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M0 32v448h448V32H0zm358.4 179.2h-89.6v89.6h-89.6v89.6H89.6V121.6h268.8v89.6z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://linkedin.com/sensedeep" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/sensedeepcloud" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.share", "search.suggest", "toc.follow"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+  
+      <script src="../../../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+    
+
+  </body>
+</html>

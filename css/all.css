@@ -1,0 +1,65 @@
+.logo {
+    width: 50%;
+}
+
+li.toctree-l3:first-child {
+    display: none;
+}
+
+h1 {
+    margin-bottom: 10px !important;
+}
+
+.md-banner__inner a {
+    color: white !important;
+    transition: none !important;
+}
+
+.hero picture img, .home-hero picture source {
+    _width: 75% !important;
+}
+
+.hero-text {
+    position: absolute;
+    margin: 40px 0 0 240px;
+    color: white;
+}
+.hero-text h1 {
+    font-size: 6.6em;
+    padding-top: 0.5em;
+    font-weight: normal;
+}
+.hero-text h2 {
+    margin-top: 10px;
+    color: #f2b876 !important;
+    font-size: 2.5em;
+    font-weight: normal;
+}
+.hero-text h3 {
+    padding-top: 0;
+    font-size: 3.0em;
+    font-weight: normal;
+}
+.hero-why {
+    position: absolute;
+    margin-top: 20px;
+    color: rgba(123, 174, 255, 1);
+    font-size: 1.5em;
+    width: 600px;
+    background: rgba(50, 50, 50, 0.25);
+}
+.hero-button {
+    margin-top: 10px;
+    background-color: var(--md-primary-fg-color);
+    border-color: var(--md-primary-fg-color);
+    color: rgba(50, 50, 50, 1);
+    color: white;
+    border: 0.1rem solid var(--md-primary-fg-color);
+    border-radius: 0.1rem;
+    _color: var(--md-primary-fg-color);
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    padding: 0.625em 2em;
+    transition: color 125ms, background-color 125ms, border-color 125ms;
+}
