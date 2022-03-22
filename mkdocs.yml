@@ -17,7 +17,9 @@ nav:
       - Why OneTable?: start/why-onetable.md
       - Features: start/features.md
       - Samples: start/samples.md
+      - Contribute: start/contribute.md
       - References: start/references.md
+      - Contact: start/contact.md
   - API:
     - Table Class:
       - api/table/overview.md
@@ -49,9 +51,8 @@ nav:
       - Constructor: api/dynamo/overview.md
     - Error Handling: api/errors.md
   - Extensions: extensions.md
-  - Contribute: start/contribute.md
-  - Contact: start/contact.md
-  - Services: services/help.md
+  - Services:
+    - DynamoDB Consulting: services/consulting.md
   - Blog: https://www.sensedeep.com/blog
 
 theme:

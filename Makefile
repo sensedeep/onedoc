@@ -2,6 +2,8 @@
 run:
 	mkdocs serve
 
-# USERNAME.github.io/REPOSITORY_NAME
-promote:
+build:
+	mkdocs build
+
+promote: build
 	mkdocs gh-deploy
