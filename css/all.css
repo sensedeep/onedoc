@@ -44,9 +44,10 @@ h1 {
     position: absolute;
     margin-top: 20px;
     color: rgba(123, 174, 255, 1);
-    font-size: 1.5em;
+    font-size: 1.6em;
     width: 600px;
     background: rgba(50, 50, 50, 0.25);
+    line-height: 1.3em;
 }
 .hero-button {
     margin-top: 10px;
