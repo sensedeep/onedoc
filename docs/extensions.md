@@ -20,5 +20,3 @@ The [OneTable CLI](https://www.npmjs.com/package/onetable-cli) which provides co
 The [SenseDeep](https://www.sensedeep.com/) Serverless Developer Studio includes a powerful collection of DynamoDB tools with single-table aware data browser, designer, provisioning planner, migration manager and metrics.
 
 The SenseDeep studio can be used to create OneTable schemas and to manage DynamoDB tables hosting single-table data.
-
-## AWS CDK Examples

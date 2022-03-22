@@ -18,5 +18,3 @@ const client = new Dynamo({client: new DynamoDBClient(params)})
 ```
 
 Note: you can use the Table.setClient API to defer setting the client or replace the client at any time.
-
-[Subscribe to our newsletter](#){ .md-button .md-button--primary }
