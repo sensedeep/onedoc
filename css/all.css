@@ -44,13 +44,12 @@ h1 {
     position: absolute;
     margin-top: 20px;
     color: rgba(123, 174, 255, 1);
-    font-size: 1.6em;
-    width: 600px;
-    background: rgba(50, 50, 50, 0.25);
-    line-height: 1.3em;
+    font-size: 1.7em;
+    width: 500px;
+    background: rgba(15, 15, 15, 0.25);
+    line-height: 1.4em;
 }
 .hero-button {
-    margin-top: 10px;
     background-color: var(--md-primary-fg-color);
     border-color: var(--md-primary-fg-color);
     color: rgba(50, 50, 50, 1);
