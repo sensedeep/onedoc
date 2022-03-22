@@ -1,0 +1,49 @@
+{% extends "main.html" %}
+
+{% block tabs %}
+  {{ super() }}
+  <style>
+    .md-header {
+      position: initial;
+    }
+    .md-main__inner {
+      margin: 0;
+    }
+    .md-content {
+      _display: none;
+    }
+    @media screen and (min-width: 60em) {
+      .md-sidebar--secondary {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 76.25em) {
+      .md-sidebar--primary {
+        display: none;
+      }
+    }
+    </style>
+    <div class="hero">
+        <picture>
+            <source srcset="images/earth-cresent-4.avif" type="image/avif">
+            <source srcset="images/earth-cresent-4.jpg" type="image/jpg">
+            <img src="images/earth-cresent-4.jpg" id="servers" alt="Cloud Logs">
+        </picture>
+    </div>
+
+    <div class="hero-text">
+        <h1>DynamoDB OneTable</h1>
+        <h2>by SenseDeep</h2>
+        <h3>The easiest way to create DynamoDB single table designs!</h3>
+
+        <div class="hero-why">
+            <p>OneTable is the most evolved API for DynamoDB. It has a high-level, dry, elegant syntax that works with the AWS SDK V2 and V3 for JavaScript and TypeScript.</p>
+
+            <a class="hero-button" href="start/quick-tour">Learn More</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+{% endblock %}
