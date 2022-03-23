@@ -15,8 +15,12 @@ h1 {
     transition: none !important;
 }
 
+.hero {
+    background-color: var(--md-footer-bg-color);
+}
+
 .hero picture img, .home-hero picture source {
-    _width: 75% !important;
+    width: 100% !important;
 }
 
 .hero-text {
