@@ -5,13 +5,17 @@ If you need help with your DynamoDB design, modeling or implementation, SenseDee
 
 As the authors of OneTable, we have deep experience in every aspect of Amazon DynamoDB for projects large and small.
 
+To discuss your project and how we can help, please contact us at [SenseDeep Services](mailto:services@sensedeep.com).
+
 ## Design Review
 
 Whether you have a new DynamoDB project or an existing production site, a review of your DynamoDB design can spot and fix potential issues. We can review your table structure, indexes, data modeling, key design, data access patterns and operational practices.
 
 ## Design Changes and Migrations
 
-DynamoDB table design changes and migrations with down-time or data risk can be difficult. We have extensive experience evolving live production sites to upgrade DynamoDB tables without impacting user access or data.
+Design changes to your DynamoDB table and data migrations without down-time or data risk are difficult to achieve. We have extensive experience evolving live production sites to upgrade DynamoDB tables without impacting user access or data.
+
+If you have a pending migration, we can be able to help.
 
 ## Data Modeling and Mapping
 
@@ -23,4 +27,4 @@ We created the OneTable metrics and DynamoDB Metrics libraries to address the se
 
 ## Contact
 
-To discuss your project, please contact us at [SenseDeep](mailto:services@sensedeep.com).
+To discuss your project, please contact us at [SenseDeep Services](mailto:services@sensedeep.com).

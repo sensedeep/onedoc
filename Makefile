@@ -1,5 +1,6 @@
 
 run:
+	(sleep 3 ; open http://localhost:8000) &
 	mkdocs serve
 
 build:
