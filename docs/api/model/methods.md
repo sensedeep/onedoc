@@ -269,4 +269,6 @@ await User.update({id: userId}, {
 })
 ```
 
-In update, the params.exists will default to a true value to ensure the item exists. If set to null, an update will be permitted to create an item if it does not already exist. In this case, you must provide values for all parameters that have generated or default values. Otherwise, OneTable will re-generate values for these parameters incase the item needs to be created.
+In update, the params.exists will default to a true value to ensure the item exists. If set to null, an update will be permitted to create an item if it does not already exist. This implements an "upsert" operation.
+
+In this case, you must provide values for all properties that are required for a create.
