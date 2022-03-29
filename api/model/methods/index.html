@@ -1607,30 +1607,39 @@
 </td></tr></table>
 <p>Use <code>params.count</code> set to true to return the number of matching items instead of returning the items.</p>
 <p>See <a href="../where/">Where Clause</a> for more details.</p>
-<p>If <code>find</code> is called without a sort key, <code>find</code> will utilize the model type as a sort key prefix and return all matching model items. This can be used to fetch all items that match the primary hash key and are of the specified model type.</p>
+<p>If <code>find</code> is called without a sort key on a model that has a sort key value template, OneTable will synthesize a sort key value using the leading portion of the sort key value template. For example, if the sort key is defined as:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nx">Card</span><span class="o">:</span> <span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>    <span class="nx">sk</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="nb">String</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;card:${id}&#39;</span> <span class="p">}</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>then, OneTable will use a <code>begins_with card:</code> key condition expression. This will also work if you use <code>${_type}</code> as the leading prefix.</p>
+<p>or without the ingredient properties needed calculate the sort key from its value template, <code>find</code> will synthesize a sort key using the leading portion utilize the model type as a sort key prefix and return all matching model items. This can be used to fetch all items that match the primary hash key and are of the specified model type.</p>
 <p>The <code>find</code> method returns an array of items after applying any schema mappings. Hidden attributes in items will not be returned.</p>
 <h3 id="pagination">Pagination</h3>
 <p>The <code>find</code> method will automatically invoke DynamoDB query to fetch additional items and aggregate the result up to the limit specified by <code>params.limit</code>. If the limit is exceeded, the last key fetched is set in the 'result.next' property of the returned array of items. You can provide this as <code>params.next</code> to a subsequent API call to continue the query with the next page of results.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span>
-<span class="normal"><a href="#__codelineno-3-5">5</a></span>
-<span class="normal"><a href="#__codelineno-3-6">6</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">let</span> <span class="nx">next</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">do</span> <span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>    <span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">accountId</span><span class="p">},</span> <span class="p">{</span><span class="nx">limit</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">next</span><span class="p">})</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="c1">//  process items</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span class="nx">next</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">next</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">let</span> <span class="nx">next</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">do</span> <span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    <span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">accountId</span><span class="p">},</span> <span class="p">{</span><span class="nx">limit</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">next</span><span class="p">})</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    <span class="c1">//  process items</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="nx">next</span> <span class="o">=</span> <span class="nx">items</span><span class="p">.</span><span class="nx">next</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">next</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>To scan backwards, set Params.reverse to true.</p>
 <p>The keys for the first item are returned in <code>params.prev</code> which can be used to retrieve the previous page.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
-<span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">let</span> <span class="nx">firstPage</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">accountId</span><span class="p">},</span> <span class="p">{</span><span class="nx">limit</span><span class="p">})</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">let</span> <span class="nx">secondPage</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">accountId</span><span class="p">},</span> <span class="p">{</span><span class="nx">limit</span><span class="p">,</span> <span class="nx">next</span>: <span class="kt">secondPage.next</span><span class="p">})</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kd">let</span> <span class="nx">previousPage</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">accountId</span><span class="p">},</span> <span class="p">{</span><span class="nx">limit</span><span class="p">,</span> <span class="nx">prev</span>: <span class="kt">items.prev</span><span class="p">})</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">let</span> <span class="nx">firstPage</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">accountId</span><span class="p">},</span> <span class="p">{</span><span class="nx">limit</span><span class="p">})</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">let</span> <span class="nx">secondPage</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">accountId</span><span class="p">},</span> <span class="p">{</span><span class="nx">limit</span><span class="p">,</span> <span class="nx">next</span>: <span class="kt">secondPage.next</span><span class="p">})</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kd">let</span> <span class="nx">previousPage</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">accountId</span><span class="p">},</span> <span class="p">{</span><span class="nx">limit</span><span class="p">,</span> <span class="nx">prev</span>: <span class="kt">items.prev</span><span class="p">})</span>
 </code></pre></div>
 </td></tr></table>
 <p>Note: the limit is the number of items read by DynamoDB before filtering and thus may not be equal to the number of items returned if you are using filtering expressions.</p>
@@ -1695,17 +1704,17 @@ When doing a find or query with a filter expression, DynamoDB may scan up to 1MB
 <p>The <code>params.where</code> clause may be used to augment the filter expression. This will define a FilterExpression and the ExpressionAttributeNames and ExpressionAttributeValues. See <a href="../where/">Where Clause</a> for more details.</p>
 <p>The scan method supports parallel scan where you invoke scan simultaneously from multiple workers. Using the async/await pattern, you can start the workers and then use a Promise.all to wait for their completion.
 To perform parallel scans, you should set the <code>params.segments</code> to the number of parallel segements and the <code>params.segment</code> to the numeric segment to be scaned for that worker.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span>
-<span class="normal"><a href="#__codelineno-5-4">4</a></span>
-<span class="normal"><a href="#__codelineno-5-5">5</a></span>
-<span class="normal"><a href="#__codelineno-5-6">6</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>const segments = 4
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>let promises = []
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>for (let segment = 0; segment &lt; segments; segment++) {
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a>    promises.push(table.scan({}, {segment, segments}))
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a>}
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a>let results = await Promise.all(promises)
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>const segments = 4
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>let promises = []
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>for (let segment = 0; segment &lt; segments; segment++) {
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    promises.push(table.scan({}, {segment, segments}))
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>}
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>let results = await Promise.all(promises)
 </code></pre></div>
 </td></tr></table>
 <p><a name="model-template"></a></p>
@@ -1733,19 +1742,19 @@ The <code>params.set</code> parameter may be set to a hash, where the hash keys 
 <p>The propertys provided to params.add, delete, remove and set are property names (not mapped attribute names).</p>
 <p>If a property is specified in the API <code>properties</code> first argument and the property is also set in params.set, params.delete, params.remove or params.add, then the params.* property value takes precedence.</p>
 <p>For example:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span>
-<span class="normal"><a href="#__codelineno-6-5">5</a></span>
-<span class="normal"><a href="#__codelineno-6-6">6</a></span>
-<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="nx">userId</span><span class="p">},</span> <span class="p">{</span><span class="ow">delete</span><span class="o">:</span> <span class="p">{</span><span class="nx">tokens</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;captain&#39;</span><span class="p">]}})</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="nx">userId</span><span class="p">},</span> <span class="p">{</span><span class="nx">remove</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;special&#39;</span><span class="p">,</span> <span class="s1">&#39;suspended&#39;</span><span class="p">]})</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="nx">userId</span><span class="p">},</span> <span class="p">{</span><span class="nx">set</span><span class="o">:</span> <span class="p">{</span><span class="nx">balance</span><span class="o">:</span> <span class="s1">&#39;${balance} + {100}&#39;</span><span class="p">}})</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="nx">userId</span><span class="p">},</span> <span class="p">{</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span class="nx">set</span><span class="o">:</span> <span class="p">{</span><span class="nx">contacts</span><span class="o">:</span> <span class="s1">&#39;list_append(if_not_exists(${contacts}, @{empty_list}), @{newContacts})&#39;</span><span class="p">},</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a>    <span class="nx">substitutions</span><span class="o">:</span> <span class="p">{</span><span class="nx">newContacts</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;+15555555555&#39;</span><span class="p">],</span> <span class="nx">empty_list</span><span class="o">:</span> <span class="p">[]}</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="p">})</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="nx">userId</span><span class="p">},</span> <span class="p">{</span><span class="ow">delete</span><span class="o">:</span> <span class="p">{</span><span class="nx">tokens</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;captain&#39;</span><span class="p">]}})</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="nx">userId</span><span class="p">},</span> <span class="p">{</span><span class="nx">remove</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;special&#39;</span><span class="p">,</span> <span class="s1">&#39;suspended&#39;</span><span class="p">]})</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="nx">userId</span><span class="p">},</span> <span class="p">{</span><span class="nx">set</span><span class="o">:</span> <span class="p">{</span><span class="nx">balance</span><span class="o">:</span> <span class="s1">&#39;${balance} + {100}&#39;</span><span class="p">}})</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="k">await</span> <span class="nx">User</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="nx">userId</span><span class="p">},</span> <span class="p">{</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="nx">set</span><span class="o">:</span> <span class="p">{</span><span class="nx">contacts</span><span class="o">:</span> <span class="s1">&#39;list_append(if_not_exists(${contacts}, @{empty_list}), @{newContacts})&#39;</span><span class="p">},</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="nx">substitutions</span><span class="o">:</span> <span class="p">{</span><span class="nx">newContacts</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;+15555555555&#39;</span><span class="p">],</span> <span class="nx">empty_list</span><span class="o">:</span> <span class="p">[]}</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="p">})</span>
 </code></pre></div>
 </td></tr></table>
 <p>In update, the params.exists will default to a true value to ensure the item exists. If set to null, an update will be permitted to create an item if it does not already exist. This implements an "upsert" operation.</p>
