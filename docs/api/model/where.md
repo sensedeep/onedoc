@@ -47,6 +47,6 @@ You can use the following operators with a `where` clause:
 * not_contains()
 * size
 
-Where clauses when used with `find` or `scan` on non-key attribugtes can also use the `<>` not equals operator.
+Where clauses when used with `find` or `scan` on non-key attributes can also use the `<>` not equals operator.
 
 See the [AWS Comparison Expression Reference](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.OperatorsAndFunctions.html) for more details.

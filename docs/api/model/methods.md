@@ -74,7 +74,17 @@ Use `params.count` set to true to return the number of matching items instead of
 
 See [Where Clause](../where/) for more details.
 
-If `find` is called without a sort key, `find` will utilize the model type as a sort key prefix and return all matching model items. This can be used to fetch all items that match the primary hash key and are of the specified model type.
+If `find` is called without a sort key on a model that has a sort key value template, OneTable will synthesize a sort key value using the leading portion of the sort key value template. For example, if the sort key is defined as:
+
+```javascript
+Card: {
+    sk: { type: String, value: 'card:${id}' }
+}
+```
+
+then, OneTable will use a `begins_with card:` key condition expression. This will also work if you use `${_type}` as the leading prefix.
+
+or without the ingredient properties needed calculate the sort key from its value template, `find` will synthesize a sort key using the leading portion utilize the model type as a sort key prefix and return all matching model items. This can be used to fetch all items that match the primary hash key and are of the specified model type.
 
 The `find` method returns an array of items after applying any schema mappings. Hidden attributes in items will not be returned.
 
