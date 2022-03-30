@@ -1,0 +1,22 @@
+{
+    "name": "onedoc",
+    "version": "2.3.5",
+    "description": "Documentation for OneTable",
+    "keywords": [
+        "dynamodb",
+        "onetable"
+    ],
+    "author": "Michael O'Brien <mob@sensedeep.com>",
+    "license": "MIT",
+    "scripts": {
+        "build": "make build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sensedeep/onedoc.git"
+    },
+    "bugs": {
+        "url": "https://github.com/sensedeep/onedoc/issues"
+    },
+    "homepage": "https://github.com/sensedeep/onetable"
+}
