@@ -85,7 +85,10 @@ theme:
 extra_css:
   - css/all.css
 extra:
-   social:
+  analytics:
+    - provider: google
+    - property: G-2ZZBCEQJGK
+  social:
     - icon: fontawesome/brands/github
       link: https://github.com/sensedeep/dynamodb-onetable
     - icon: fontawesome/brands/facebook
