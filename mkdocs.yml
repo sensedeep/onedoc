@@ -28,7 +28,6 @@ nav:
         - Crypto: api/table/constructor/crypto.md
         - Logging: api/table/constructor/logging.md
         - Metrics: api/table/constructor/metrics.md
-        - Schemas: api/table/constructor/schemas.md
         - Transforms: api/table/constructor/transforms.md
         - Value Templates: api/table/constructor/templates.md
         - Validations: api/table/constructor/validations.md
