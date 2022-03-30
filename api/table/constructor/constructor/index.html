@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#aws-dynamodb-accelerator-dax" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -776,9 +781,38 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Constructor
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Constructor
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-dynamodb-accelerator-dax" class="md-nav__link">
+    AWS DynamoDB Accelerator (DAX)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1319,6 +1353,37 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aws-dynamodb-accelerator-dax" class="md-nav__link">
+    AWS DynamoDB Accelerator (DAX)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1416,6 +1481,25 @@
 <p>By default, OneTable will not write <code>null</code> values to the database rather, it will remove the corresponding attribute from the item. If you set the <code>nulls</code> property to true, <code>null</code> values will be written via <code>create</code> or <code>update</code>. You can also define <code>nulls</code> on a model attribute basis via the schema.</p>
 <p>The <code>metrics</code> property may be set to a map that configures detailed CloudWatch EMF metrics. See <a href="../metrics/">Metrics</a> for more information.</p>
 <p>The <code>schema</code> property must be set to your OneTable schema that defines your data model. See <a href="../schemas/">Schemas</a> for details.</p>
+<h2 id="aws-dynamodb-accelerator-dax">AWS DynamoDB Accelerator (DAX)</h2>
+<p>The Amazon DynamoDB Accelerator is a fully managed, highly available, in-memory cache for DynamoDB. OneTable supports DAX.</p>
+<p>Currently, the AWS SDK V3 does not support DAX via by the DynamoDBClient package so you must use the AWS SDK V2.</p>
+<p>Here is as sample initialization code for DAX:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">import</span> <span class="p">{</span><span class="nx">DynamoDB</span><span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;aws-sdk&#39;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">import</span> <span class="nx">AmazonDaxClient</span> <span class="kr">from</span> <span class="s1">&#39;amazon-dax-client&#39;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kd">const</span> <span class="nx">endpoint</span> <span class="o">=</span> <span class="s2">&quot;dax://DAX-CLUSTER-ENDPOINT&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="kd">const</span> <span class="nx">dax</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">AmazonDaxClient</span><span class="p">({</span><span class="nx">endpoints</span><span class="o">:</span> <span class="p">[</span><span class="nx">endpoint</span><span class="p">],</span> <span class="nx">region</span><span class="o">:</span> <span class="s1">&#39;AWS_REGION&#39;</span><span class="p">})</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="kd">const</span> <span class="nx">client</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">DynamoDB</span><span class="p">.</span><span class="nx">DocumentClient</span><span class="p">({</span><span class="nx">service</span><span class="o">:</span> <span class="nx">dax</span><span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
 
               
             </article>
