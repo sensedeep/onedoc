@@ -36,3 +36,21 @@ By default, OneTable will not write `null` values to the database rather, it wil
 The `metrics` property may be set to a map that configures detailed CloudWatch EMF metrics. See [Metrics](../metrics/) for more information.
 
 The `schema` property must be set to your OneTable schema that defines your data model. See [Schemas](../schemas/) for details.
+
+## AWS DynamoDB Accelerator (DAX)
+
+The Amazon DynamoDB Accelerator is a fully managed, highly available, in-memory cache for DynamoDB. OneTable supports DAX.
+
+Currently, the AWS SDK V3 does not support DAX via by the DynamoDBClient package so you must use the AWS SDK V2.
+
+Here is as sample initialization code for DAX:
+
+```javascript
+import {DynamoDB} from 'aws-sdk'
+import AmazonDaxClient from 'amazon-dax-client'
+
+const endpoint = "dax://DAX-CLUSTER-ENDPOINT"
+const dax = new AmazonDaxClient({endpoints: [endpoint], region: 'AWS_REGION'})
+
+const client = new DynamoDB.DocumentClient({service: dax})
+```
