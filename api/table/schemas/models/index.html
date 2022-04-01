@@ -43,13 +43,26 @@
   
 
 
-  
-  
+  <script>
+  /* Add custom analytics integration here, e.g. */
+  // var property = ""
 
-
-  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-2ZZBCEQJGK"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-2ZZBCEQJGK",{page_path:e.pathname})})})</script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZZBCEQJGK"></script>
-
+  /* Wait for page to load and application to mount */
+  document.addEventListener("DOMContentLoaded", function() {
+      location$.subscribe(function(url) {
+          var _paq = window._paq = window._paq || [];
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="https://embedthis.matomo.cloud/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '3']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src='//cdn.matomo.cloud/embedthis.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+      })
+})
+</script>
 
     
     
