@@ -2,7 +2,7 @@ You can contact me (Michael O'Brien) on Twitter at: [@mobstream](https://twitter
 
 ## SenseDeep DynamoDB Services
 
-If you would like help with your DynamoDB designs or implementation, we offer a range of consulting services for DynamoDB and Serverless. See [SenseDeep Services](../../services/help/) for more details.
+If you would like help with your DynamoDB designs or implementation, we offer a range of consulting services for DynamoDB and Serverless. See [SenseDeep Services](../../services/consulting/) for more details.
 
 
 ## SenseDeep Serverless Developer Studio
