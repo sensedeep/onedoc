@@ -109,8 +109,8 @@ The keys for the first item are returned in `params.prev` which can be used to r
 
 ```typescript
 let firstPage = await User.find({accountId}, {limit})
-let secondPage = await User.find({accountId}, {limit, next: secondPage.next})
-let previousPage = await User.find({accountId}, {limit, prev: items.prev})
+let secondPage = await User.find({accountId}, {limit, next: firstPage.next})
+let previousPage = await User.find({accountId}, {limit, prev: secondPage.prev})
 ```
 
 Note: the limit is the number of items read by DynamoDB before filtering and thus may not be equal to the number of items returned if you are using filtering expressions.
