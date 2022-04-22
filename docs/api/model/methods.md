@@ -109,8 +109,8 @@ The keys for the first item are returned in `params.prev` which can be used to r
 
 ```typescript
 let firstPage = await User.find({accountId}, {limit})
-let secondPage = await User.find({accountId}, {limit, next: secondPage.next})
-let previousPage = await User.find({accountId}, {limit, prev: items.prev})
+let secondPage = await User.find({accountId}, {limit, next: firstPage.next})
+let previousPage = await User.find({accountId}, {limit, prev: secondPage.prev})
 ```
 
 Note: the limit is the number of items read by DynamoDB before filtering and thus may not be equal to the number of items returned if you are using filtering expressions.
@@ -213,8 +213,6 @@ The optional params are fully described in [Model API Params](#model-api-params)
 The `params.fields` may be set to a list of properties to return. This defines the ProjectionExpression.
 
 If `params.execute` is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.
-
-If `params.many` is set to true, the API may be used to delete more than one item. Otherwise, for safety, it is assume the API will only remove one item.
 
 The `params.where` clause may be used to augment the filter expression. This will define a FilterExpression and the ExpressionAttributeNames and ExpressionAttributeValues. See [Where Clause](../where/) for more details.
 
