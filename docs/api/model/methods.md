@@ -214,8 +214,6 @@ The `params.fields` may be set to a list of properties to return. This defines t
 
 If `params.execute` is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.
 
-If `params.many` is set to true, the API may be used to delete more than one item. Otherwise, for safety, it is assume the API will only remove one item.
-
 The `params.where` clause may be used to augment the filter expression. This will define a FilterExpression and the ExpressionAttributeNames and ExpressionAttributeValues. See [Where Clause](../where/) for more details.
 
 The scan method supports parallel scan where you invoke scan simultaneously from multiple workers. Using the async/await pattern, you can start the workers and then use a Promise.all to wait for their completion.
