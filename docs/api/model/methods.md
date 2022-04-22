@@ -38,7 +38,7 @@ The optional params are described in [Model API Params](#model-api-params).
 
 Find items in the database. This API wraps the DynamoDB `query` method.
 
-The `properties` parameter is a Javascript hash containing the required keys or fields that are used to create the primary key.
+The `properties` parameter is a Javascript hash containing the required keys or fields that are used to determine the primary key or keys.
 
 The sort key may be defined as a simple value or as a key condition by setting the property to an object that defines the condition. The condition operator is specified as the key, and the operand as the value. For example:
 
@@ -84,7 +84,7 @@ Card: {
 
 then, OneTable will use a `begins_with card:` key condition expression. This will also work if you use `${_type}` as the leading prefix.
 
-or without the ingredient properties needed calculate the sort key from its value template, `find` will synthesize a sort key using the leading portion utilize the model type as a sort key prefix and return all matching model items. This can be used to fetch all items that match the primary hash key and are of the specified model type.
+Without the ingredient properties needed calculate the sort key from its value template, `find` will synthesize a sort key using the leading portion utilize the model type as a sort key prefix and return all matching model items. This can be used to fetch all items that match the primary hash key and are of the specified model type.
 
 The `find` method returns an array of items after applying any schema mappings. Hidden attributes in items will not be returned.
 
