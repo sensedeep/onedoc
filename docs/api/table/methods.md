@@ -115,6 +115,8 @@ users.forEach(user => /* operate on user */)
 products.forEach(product => /* operate on product */)
 ```
 
+The results returned will include hidden properties as they are needed to group the items by type.
+
 ## find
 
     async find(modelName, properties, params = {})
