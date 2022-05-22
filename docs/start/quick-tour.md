@@ -189,6 +189,7 @@ let count = users.count
 await User.update({id: userId, balance: 50})
 await User.update({id: userId}, {add: {balance: 10.00}})
 await User.update({id: userId}, {set: {status: '{active}'}})
+await User.update({id: userId}, {push: {tasks: 'Learn DynamoDB'}})
 ```
 
 ## Transactional Updates
