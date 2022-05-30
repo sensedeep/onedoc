@@ -272,7 +272,7 @@ await User.update({id: userId}, {delete: {tokens: ['captain']}})
 await User.update({id: userId}, {remove: ['special', 'suspended']})
 await User.update({id: userId}, {set: {balance: '${balance} + {100}'}})
 await User.update({id: userId}, {
-    set: {contacts: 'list_append(if_not_exists(${contacts}, @{empty_list}), @{newContacts})'},
+    set: {contacts: 'list_append(if_not_exists(contacts, @{empty_list}), @{newContacts})'},
     substitutions: {newContacts: ['+15555555555'], empty_list: []}
 })
 ```
