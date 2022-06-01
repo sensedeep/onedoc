@@ -52,3 +52,17 @@ The `value` property defines a literal string template that is used to compute t
 String templates are similar to JavaScript string templates. The template string may contain `${name}` references to other fields defined in the entity model. If any of the variable references are undefined when an API is called, the computed field value will be undefined and the attribute will be omitted from the operation. The variable `name` may be of the form: `${name:size:pad}` where the name will be padded to the specified size using the given `pad` character (which default to '0'). This is useful for zero padding numbers so that they sort numerically.
 
 If you call `find` or any query API and do not provide all the properties needed to resolve the complete value template. i.e. some of the ${var} references are unresolved, OneTable will take the resolved leading portion and create a `begins with` key condition for that portion of the value template.
+
+## Value and Default Functions
+
+You may set the `value` property to a function to compute the value at runtime. This practice is not advised if you wish to use tools like SenseDeep to manage your schemas as the schema will no longer be literal as it will now contain embedded code. The `value` function invocation signature is:
+
+```javascript
+value = value(name, properties)
+```
+
+Similarly, the default property may be set to a function to compute the value at runtime. The `default` function invocation signature is:
+
+```javascript
+value = default(model, name, properties)
+```

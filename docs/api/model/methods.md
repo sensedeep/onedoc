@@ -28,7 +28,7 @@ If the schema specifies that an attribute must be unique, OneTable will create a
 
 When a unique field for an item is updated, the prior item value must be read first so that the unique item can be deleted. If you do an update and do not specify params.return == 'NONE', the update API must return the full updated item. This incurs an additional `get` request to fetch the updated values as DynamoDB transactions do not return item values. There is thus additional I/O and overhead for unique items, so take care when designating attributes as unique in high update volume items.
 
-The optional params are described in [Model API Params](#model-api-params).
+The optional params are described in [Model API Params](../params).
 
 <a name="model-find"></a>
 
@@ -115,7 +115,7 @@ let previousPage = await User.find({accountId}, {limit, prev: secondPage.prev})
 
 Note: the limit is the number of items read by DynamoDB before filtering and thus may not be equal to the number of items returned if you are using filtering expressions.
 
-The optional params are fully described in [Model API Params](#model-api-params). Some relevant params include:
+The optional params are fully described in [Model API Params](../params). Some relevant params include:
 
 If `params.execute` is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.
 
@@ -149,7 +149,7 @@ Additional fields supplied in `properties` may be used to construct a filter exp
 
 The `get` method returns Javascript properties for the item after applying any schema mappings. Hidden attributes will not be returned.
 
-The optional params are fully described in [Model API Params](#model-api-params). Some relevant params include:
+The optional params are fully described in [Model API Params](../params). Some relevant params include:
 
 The `params.fields` may be set to a list of properties to return. This defines the ProjectionExpression.
 
@@ -181,7 +181,7 @@ The `properties` parameter is a Javascript hash containing the required keys or 
 
 Additional fields supplied in `properties` may be used to construct a filter expression. In this case, a `find` query is first executed to identify the item to remove. Superfluous property fields will be ignored.
 
-The optional params are fully described in [Model API Params](#model-api-params). Some relevant params include:
+The optional params are fully described in [Model API Params](../params). Some relevant params include:
 
 The `params.fields` may be set to a list of properties to return. This defines the ProjectionExpression.
 
@@ -208,7 +208,7 @@ The `properties` parameter is a Javascript hash containing fields used to constr
 
 The `scan` method returns an array of items after applying any schema mappings. Hidden attributes in items will not be returned.
 
-The optional params are fully described in [Model API Params](#model-api-params). Some relevant params include:
+The optional params are fully described in [Model API Params](../params). Some relevant params include:
 
 The `params.fields` may be set to a list of properties to return. This defines the ProjectionExpression.
 
@@ -254,9 +254,9 @@ The method returns the all the Javascript properties for the item. Hidden attrib
 
 If the method fails to update, it will throw an exception. If `params.throw` is set to false, an exception will not be thrown and the method will return `undefined`.
 
-The optional params are described in [Model API Params](#model-api-params).    
+The optional params are described in [Model API Params](../params).    
 
-The `params.add` parameter may be set a value to add to property.
+The `params.add` parameter may be set to a value to add to the property.
 The `params.delete` parameter may be set to a hash, where the hash keys are the property sets to modify and the values are the items in the sets to remove.
 The `params.remove` parameter may be set to a list of properties to remove.
 The `params.set` parameter may be set to a hash, where the hash keys are the properties to modify and the values are expresions.
