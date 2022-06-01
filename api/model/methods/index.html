@@ -1565,7 +1565,7 @@
 <h3 id="unique-fields">Unique Fields</h3>
 <p>If the schema specifies that an attribute must be unique, OneTable will create a special item in the database to enforce the uniqueness. This item will be an instance of the Unique model with the primary key set to <code>_unique:Model:Attribute:Value</code>. The created item and the unique item will be created in a transparent transaction so that the item will be created only if all the unique fields are truly unique.  The <code>remove</code> API will similarly remove the special unique item.</p>
 <p>When a unique field for an item is updated, the prior item value must be read first so that the unique item can be deleted. If you do an update and do not specify params.return == 'NONE', the update API must return the full updated item. This incurs an additional <code>get</code> request to fetch the updated values as DynamoDB transactions do not return item values. There is thus additional I/O and overhead for unique items, so take care when designating attributes as unique in high update volume items.</p>
-<p>The optional params are described in <a href="#model-api-params">Model API Params</a>.</p>
+<p>The optional params are described in <a href="../params">Model API Params</a>.</p>
 <p><a name="model-find"></a></p>
 <h2 id="find">find</h2>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>async find(properties, params = {})
@@ -1644,7 +1644,7 @@
 </code></pre></div>
 </td></tr></table>
 <p>Note: the limit is the number of items read by DynamoDB before filtering and thus may not be equal to the number of items returned if you are using filtering expressions.</p>
-<p>The optional params are fully described in <a href="#model-api-params">Model API Params</a>. Some relevant params include:</p>
+<p>The optional params are fully described in <a href="../params">Model API Params</a>. Some relevant params include:</p>
 <p>If <code>params.execute</code> is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.</p>
 <p>The <code>params.fields</code> may be set to a list of properties to return. This defines the ProjectionExpression.</p>
 <p>If the <code>params.follow</code> is set to true, each item will be re-fetched using the returned results. This is useful for KEYS_ONLY secondary indexes where OneTable will use the retrieved keys to fetch all the attributes of the entire item using the primary index. This incurs an additional request for each item, but for large data sets, it enables the transparent use of a KEYS_ONLY secondary index which may greatly reduce the size (and cost) of the secondary index.</p>
@@ -1663,7 +1663,7 @@ When doing a find or query with a filter expression, DynamoDB may scan up to 1MB
 <p>The <code>properties</code> parameter is a Javascript hash containing the required keys or fields that are used to create the primary key.</p>
 <p>Additional fields supplied in <code>properties</code> may be used to construct a filter expression. In this case, a <code>find</code> query is first executed to identify the item to retrieve. Superfluous property fields will be ignored.</p>
 <p>The <code>get</code> method returns Javascript properties for the item after applying any schema mappings. Hidden attributes will not be returned.</p>
-<p>The optional params are fully described in <a href="#model-api-params">Model API Params</a>. Some relevant params include:</p>
+<p>The optional params are fully described in <a href="../params">Model API Params</a>. Some relevant params include:</p>
 <p>The <code>params.fields</code> may be set to a list of properties to return. This defines the ProjectionExpression.</p>
 <p>If the <code>params.follow</code> is set to true, the item will be re-fetched using the retrieved keys for the item. This is useful for KEYS_ONLY secondary indexes where OneTable will use the retrieved keys to fetch all the attributes of the item using the primary index. This incurs an additional request, but for very large data sets, it enables the transparent use of a KEYS_ONLY secondary index which reduces the size of the database.</p>
 <p>If <code>params.execute</code> is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.</p>
@@ -1683,7 +1683,7 @@ When doing a find or query with a filter expression, DynamoDB may scan up to 1MB
 <p>Remove an item from the database. This wraps the DynamoDB <code>deleteItem</code> method.</p>
 <p>The <code>properties</code> parameter is a Javascript hash containing the required keys or fields that are used to create the primary key.</p>
 <p>Additional fields supplied in <code>properties</code> may be used to construct a filter expression. In this case, a <code>find</code> query is first executed to identify the item to remove. Superfluous property fields will be ignored.</p>
-<p>The optional params are fully described in <a href="#model-api-params">Model API Params</a>. Some relevant params include:</p>
+<p>The optional params are fully described in <a href="../params">Model API Params</a>. Some relevant params include:</p>
 <p>The <code>params.fields</code> may be set to a list of properties to return. This defines the ProjectionExpression.</p>
 <p>If <code>params.execute</code> is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.</p>
 <p>If <code>params.many</code> is set to true, the API may be used to delete more than one item. Otherwise, for safety, it is assume the API will only remove one item.</p>
@@ -1698,7 +1698,7 @@ When doing a find or query with a filter expression, DynamoDB may scan up to 1MB
 <p>An alternative to using scan to retrieve all items of a give model type is to create a GSI and index the model <code>type</code> field and then use <code>query</code> to retrieve the items. This index can be a sparse index if only a subset of models are indexed.</p>
 <p>The <code>properties</code> parameter is a Javascript hash containing fields used to construct a filter expression which is applied by DynamoDB after reading the data but before returning it to the caller. OneTable will utilize fields in <code>properties</code> that correspond to the schema attributes for the model. Superfluous property fields will be ignored in the filter expression.</p>
 <p>The <code>scan</code> method returns an array of items after applying any schema mappings. Hidden attributes in items will not be returned.</p>
-<p>The optional params are fully described in <a href="#model-api-params">Model API Params</a>. Some relevant params include:</p>
+<p>The optional params are fully described in <a href="../params">Model API Params</a>. Some relevant params include:</p>
 <p>The <code>params.fields</code> may be set to a list of properties to return. This defines the ProjectionExpression.</p>
 <p>If <code>params.execute</code> is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.</p>
 <p>The <code>params.where</code> clause may be used to augment the filter expression. This will define a FilterExpression and the ExpressionAttributeNames and ExpressionAttributeValues. See <a href="../where/">Where Clause</a> for more details.</p>
@@ -1734,8 +1734,8 @@ To perform parallel scans, you should set the <code>params.segments</code> to th
 <p>The property names are those described by the schema. NOTE: these are not the same as the attribute names stored in the Database. If a schema uses <code>map</code> to define a mapped attribute name, the Javascript field name and the DynamoDB attribute name may be different.</p>
 <p>The method returns the all the Javascript properties for the item. Hidden attributes will not be returned.</p>
 <p>If the method fails to update, it will throw an exception. If <code>params.throw</code> is set to false, an exception will not be thrown and the method will return <code>undefined</code>.</p>
-<p>The optional params are described in <a href="#model-api-params">Model API Params</a>.    </p>
-<p>The <code>params.add</code> parameter may be set a value to add to property.
+<p>The optional params are described in <a href="../params">Model API Params</a>.    </p>
+<p>The <code>params.add</code> parameter may be set to a value to add to the property.
 The <code>params.delete</code> parameter may be set to a hash, where the hash keys are the property sets to modify and the values are the items in the sets to remove.
 The <code>params.remove</code> parameter may be set to a list of properties to remove.
 The <code>params.set</code> parameter may be set to a hash, where the hash keys are the properties to modify and the values are expresions.</p>
