@@ -1481,7 +1481,7 @@
 <tr>
 <td>execute</td>
 <td align="center"><code>boolean</code></td>
-<td>Set to true to execute the API. If false, return the formatted command and do not execute. Defaults to true.</td>
+<td>Set to true to execute the API. If false, return the formatted command and do not execute. Note: if set on an update of a unique field which requires a transaction and multiple commands, the commands will not be returned. To see the commands, set the parmas.log to true. Execute defaults to true.</td>
 </tr>
 <tr>
 <td>exists</td>
