@@ -1446,6 +1446,11 @@
 <td>Set to true to store dates as Javascript ISO strings vs epoch numerics. If unset, the field will use the table default value for isoDates. Default to the schema params value.</td>
 </tr>
 <tr>
+<td>items</td>
+<td align="center"><code>object</code></td>
+<td>Nested schema used to enforce types for items in an array if the attribute type is <code>Array</code>.</td>
+</tr>
+<tr>
 <td>map</td>
 <td align="center"><code>string</code></td>
 <td>Map the field value to a different attribute name when storing in the database. Can be a simple attribute name or a compound "obj.name" where multiple fields can be stored in a single attribute containing an object with all the fields.</td>
@@ -1507,7 +1512,7 @@
 </code></pre></div>
 </td></tr></table>
 <p>The "model" selects that target entity model of the reference using the nominated "index" where the target "attribute" is determined by the associated source-attribute. Multiple attributes can be specified. Tools can use this reference to navigate from one entity item to another.</p>
-<p>The <code>schema</code> property permits nested field definitions. The parent property must be an Object as Arrays are not yet supported. Note: TypeScript typings are not created for nested schemas.</p>
+<p>The <code>schema</code> property permits nested field definitions. The parent property must be an Object as the type of items in arrays are defined using the <code>items</code> property.</p>
 <p>The <code>ttl</code> property supports DynamoDB TTL expiry attributes. Set to true to store a supplied date value as a Unix epoch in seconds suitable for use as a DynamoDB TTL attribute.</p>
 <p>The <code>type</code> properties defines the attribute data type. Valid types include: String, Number, Boolean, Date, Object, Null, Array, Buffer (or Binary) and Set. The object type is mapped to a <code>map</code>, the array type is mapped to a <code>list</code>. Dates are stored as Unix numeric epoch date stamps unless the <code>isoDates</code> parameter is true, in which case the dates are store as ISO date strings. Binary data is supplied via <code>buffer</code> types and is stored as base64 strings in DynamoDB.</p>
 <p>The <code>validate</code> property defines a regular expression that is used to validate data before writing to the database. Highly recommended.</p>
