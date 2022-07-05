@@ -9,6 +9,7 @@ The following attribute properties are supported:
 | generate | `string|boolean` | Set to 'ulid' or 'uuid' to automatically create a new ID value for the attribute when creating new items. Set to true to use a custom ID generator defined via the Table params.generate option. Default to null. |
 | hidden | `boolean` | Set to true to omit the attribute in the returned Javascript results. Attributes with a "value" template defined will by hidden by default. Default to the schema params value. |
 | isoDates | `boolean` | Set to true to store dates as Javascript ISO strings vs epoch numerics. If unset, the field will use the table default value for isoDates. Default to the schema params value. |
+| items | `object` | Nested schema used to enforce types for items in an array if the attribute type is `Array`.
 | map | `string` | Map the field value to a different attribute name when storing in the database. Can be a simple attribute name or a compound "obj.name" where multiple fields can be stored in a single attribute containing an object with all the fields. |
 | nulls | `boolean` | Set to true to store null values or false to remove attributes set to null. Default false. |
 | required | `boolean` | Set to true if the attribute is required. Default to the schema params value. |
@@ -39,7 +40,7 @@ model:index:attribute=source-attribute,...
 
 The "model" selects that target entity model of the reference using the nominated "index" where the target "attribute" is determined by the associated source-attribute. Multiple attributes can be specified. Tools can use this reference to navigate from one entity item to another.
 
-The `schema` property permits nested field definitions. The parent property must be an Object as Arrays are not yet supported. Note: TypeScript typings are not created for nested schemas.
+The `schema` property permits nested field definitions. The parent property must be an Object as the type of items in arrays are defined using the `items` property.
 
 The `ttl` property supports DynamoDB TTL expiry attributes. Set to true to store a supplied date value as a Unix epoch in seconds suitable for use as a DynamoDB TTL attribute.
 
