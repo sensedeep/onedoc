@@ -25,7 +25,7 @@ With this syntax, the list is expanded in-situ and each list item is defined as 
 
 ```javascript
 let adminUsers = await User.find({}, {
-    where: '(${role} IN @{...roles})',
+    where: '(${role} IN (@{...roles}))',
     substitutions: {
         roles: ['user', 'admin']
     }
