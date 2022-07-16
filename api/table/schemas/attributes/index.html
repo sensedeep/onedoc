@@ -1478,7 +1478,7 @@
 <tr>
 <td>ttl</td>
 <td align="center"><code>boolean</code></td>
-<td>Set to true to store the date value as a Unix epoch in seconds suitable for use as a DynamoDB TTL attribute.</td>
+<td>Set to true to convert a supplied date value to a DynamoDB TTL seconds value. The supplied date value can be a Date instance, a number representing a Unix epoch in milliseconds since Jan 1, 1970 or a string that can be parsed by Date.parse. OneTable will divide the Javascript date value by 1000 to get a DynamoDB TTL seconds value.</td>
 </tr>
 <tr>
 <td>type</td>
