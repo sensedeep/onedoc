@@ -15,7 +15,7 @@ The following attribute properties are supported:
 | required | `boolean` | Set to true if the attribute is required. Default to the schema params value. |
 | reference | `string` | Describes a reference to another entity item. Format is: model:index:attribute=src-attribute,... |
 | schema | `object` | Nested schema. |
-| ttl | `boolean` | Set to true to store the date value as a Unix epoch in seconds suitable for use as a DynamoDB TTL attribute. |
+| ttl | `boolean` | Set to true to convert a supplied date value to a DynamoDB TTL seconds value. The supplied date value can be a Date instance, a number representing a Unix epoch in milliseconds since Jan 1, 1970 or a string that can be parsed by Date.parse. OneTable will divide the Javascript date value by 1000 to get a DynamoDB TTL seconds value. |
 | type | `Type or string` | Type to use for the attribute. |
 | unique | `boolean` | Set to true to enforce uniqueness for this attribute. Default false. |
 | validate | `RegExp` | Regular expression to use to validate data before writing. |

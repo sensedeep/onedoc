@@ -14,9 +14,10 @@ These are the parameter values for the `params` argument.
 | context | `object` | Optional context hash of properties to blend with API properties when creating or updating items. This overrides the Table.context. Setting to `{}` is a useful one-off way to ignore the context for this API. |
 | count | `boolean` | Return a count of matching items instead of the result set for a find/query. The count is returned as a `count` property in the returned items array. Default false. |
 | delete | `object` | Used to delete items from a `set` attribute. Set to an object containing the attribute name and item to delete. Example: delete: {colors: 'blue'}|
-| execute | `boolean` | Set to true to execute the API. If false, return the formatted command and do not execute. Defaults to true.|
+| execute | `boolean` | Set to true to execute the API. If false, return the formatted command and do not execute. Note: if set on an update of a unique field which requires a transaction and multiple commands, the commands will not be returned. To see the commands, set the parmas.log to true. Execute defaults to true.|
 | exists | `boolean` | Set to true for `create`, `delete` or `update` APIs to verify if an item of the same key exists or not. Defaults to false for `create`, null for `delete` and true for `update` Set to null to disable checking either way.|
 | fields | `array` | List of properties to return. This sets the ProjectionExpression. Default null. |
+| follow | `boolean` | Refetch the item using the returned keys to retrieve the full item. Useful for indexes that are KEYS_ONLY. Default null. |
 | hidden | `boolean` | Hide key attributes in Javascript properties. Overrides model.hidden. Default null. |
 | index | `string` | Name of index to utilize. Defaults to 'primary'|
 | limit | `number` | Set to the maximum number of items to return from a find / scan.|

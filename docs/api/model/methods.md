@@ -117,7 +117,7 @@ Note: the limit is the number of items read by DynamoDB before filtering and thu
 
 The optional params are fully described in [Model API Params](../params). Some relevant params include:
 
-If `params.execute` is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.
+If `params.execute` is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned. However, if set on an update that has a unique field, the commands will not be returned. This is because and update with a unique field requires a transaction and multiple commands. In this case, setting execute: true will cause the command to not be executed as expected, but the the proposed commands will not be returned. To see the commands, set the parmas.log to true to log the commands to the console.
 
 The `params.fields` may be set to a list of properties to return. This defines the ProjectionExpression.
 

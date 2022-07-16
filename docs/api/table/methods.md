@@ -442,7 +442,7 @@ The optional params are described in [Model API Params](#model-api-params).
 
 The `params.fields` may be set to a list of properties to return. This defines the ProjectionExpression.
 
-If `params.execute` is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned.
+If `params.execute` is set to false, the command will not be executed and the prepared DynamoDB API parameters will be returned. However, if set on an update that has a unique field, the commands will not be returned. This is because and update with a unique field requires a transaction and multiple commands. In this case, setting execute: true will cause the command to not be executed as expected, but the the proposed commands will not be returned. To see the commands, set the parmas.log to true to log the commands to the console.
 
 If `params.parse` is set to true, the results will be parsed and mapped into a set of Javascript properties. Otherwise, the unmodified DynamoDB response will be returned.
 
