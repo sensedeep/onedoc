@@ -1,6 +1,4 @@
 #
-#   - is the Model low-level API documented
-#
 site_name: SenseDeep DynamoDB OneTable
 repo_url: https://github.com/sensedeep/dynamodb-onetable
 edit_uri: ""
@@ -49,6 +47,25 @@ nav:
     - Dynamo Class:
       - Constructor: api/dynamo/overview.md
     - Error Handling: api/errors.md
+  - Guides:
+    - Overview: guides/overview.md
+    - DynamoDB:
+      - Intro to DynamoDB: https://www.sensedeep.com/blog/posts/2021/dynamodb-onetable-tour.html
+      - Data Modeling for DynamoDB: https://www.sensedeep.com/blog/posts/2021/dynamodb-singletable-design.html
+      - DynamoDB with OneTable Schemas: https://www.sensedeep.com/blog/posts/2021/dynamodb-schemas.html
+      - DynamoDB OneTable API Overview: https://www.sensedeep.com/blog/posts/2021/dynamodb-onetable-tour.html
+      - DynamoDB Checklist: https://www.sensedeep.com/blog/posts/2021/dynamodb-checklist.html
+      - DynamoDB with TypeScript: https://www.sensedeep.com/blog/posts/2021/dynamodb-typescript.html
+      - DynamoDB Sparse GSIs: https://www.sensedeep.com/blog/posts/2021/sparse-gsi-indexes.html
+      - DynamoDB Attribute Packing: https://www.sensedeep.com/blog/posts/2021/attribute-packing.html
+      - Evolving DynamoDB Designs: https://www.sensedeep.com/blog/posts/2021/evolving-dynamodb-designs.html
+      - SenseDeep Migration Manager: https://www.sensedeep.com/blog/posts/series/dynamodb-studio/migration-manager.html
+      - SenseDeep DynamoDB Studio: https://www.sensedeep.com/blog/posts/stories/dynamodb-studio.html
+      - SenseDeep DynamoDB Quick Tour: https://www.sensedeep.com/blog/posts/product/dynamodb-tour.html
+    - Serverless:
+      - How to Debug Serverless Apps: https://www.sensedeep.com/blog/posts/stories/how-to-debug-serverless-apps.html
+      - How to invoke HTTP without Waiting from Lambda: https://www.sensedeep.com/blog/posts/stories/lambda-fast-http.html
+      - Fast Logging with Lambda: https://www.sensedeep.com/blog/posts/senselogs/serverless-logging.html
   - Extensions: extensions.md
   - Services:
     - DynamoDB Consulting: services/consulting.md

@@ -5,7 +5,6 @@ The following attribute properties are supported:
 | crypt | `boolean` | Set to true to encrypt the data before writing. |
 | default | `string` | Default value to use when creating model items or when reading items without a value.|
 | enum | `array` | List of valid string values for the attribute. |
-| filter | `boolean` | Enable a field to be used in a filter expression. Default true. |
 | generate | `string|boolean` | Set to 'ulid' or 'uuid' to automatically create a new ID value for the attribute when creating new items. Set to true to use a custom ID generator defined via the Table params.generate option. Default to null. |
 | hidden | `boolean` | Set to true to omit the attribute in the returned Javascript results. Attributes with a "value" template defined will by hidden by default. Default to the schema params value. |
 | isoDates | `boolean` | Set to true to store dates as Javascript ISO strings vs epoch numerics. If unset, the field will use the table default value for isoDates. Default to the schema params value. |
@@ -15,9 +14,10 @@ The following attribute properties are supported:
 | required | `boolean` | Set to true if the attribute is required. Default to the schema params value. |
 | reference | `string` | Describes a reference to another entity item. Format is: model:index:attribute=src-attribute,... |
 | schema | `object` | Nested schema. |
+| scope | `string` | Scope within which a unique attribute will be created. This is a template value to incorporate with the unique attributes. When expanded, this value is added to the unique attribute created for unique fields. Default to null.|
 | ttl | `boolean` | Set to true to convert a supplied date value to a DynamoDB TTL seconds value. The supplied date value can be a Date instance, a number representing a Unix epoch in milliseconds since Jan 1, 1970 or a string that can be parsed by Date.parse. OneTable will divide the Javascript date value by 1000 to get a DynamoDB TTL seconds value. |
 | type | `Type or string` | Type to use for the attribute. |
-| unique | `boolean` | Set to true to enforce uniqueness for this attribute. Default false. |
+| unique | `boolean` | Set to true to enforce uniqueness for this attribute. See the "scope" property to define a reduced scope for the unique attribute. Default false. |
 | validate | `RegExp` | Regular expression to use to validate data before writing. |
 | value | `string` | Template to derive the value of the attribute. These attributes are "hidden" by default. |
 

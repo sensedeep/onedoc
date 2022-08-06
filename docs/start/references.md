@@ -1,5 +1,5 @@
 - [OneTable Samples](https://github.com/sensedeep/dynamodb-onetable/tree/main/samples)
-- [OneTable Schema Specification](https://github.com/sensedeep/dynamodb-onetable/blob/main/doc/schema-1.0.0.md)
+- [OneTable Schema Specification](https://github.com/sensedeep/dynamodb-onetable/blob/main/doc/schema-1.1.0.md)
 - [OneTable Tests](https://github.com/sensedeep/dynamodb-onetable/tree/main/test)
 - [SenseDeep Blog](https://www.sensedeep.com/blog/)
 - [DynamoDB Checklist](https://www.sensedeep.com/blog/posts/2021/dynamodb-checklist.html)

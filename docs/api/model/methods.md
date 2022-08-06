@@ -24,7 +24,9 @@ For create, the params.exists will default to a false value to ensure an item of
 
 ### Unique Fields
 
-If the schema specifies that an attribute must be unique, OneTable will create a special item in the database to enforce the uniqueness. This item will be an instance of the Unique model with the primary key set to `_unique:Model:Attribute:Value`. The created item and the unique item will be created in a transparent transaction so that the item will be created only if all the unique fields are truly unique.  The `remove` API will similarly remove the special unique item.
+If the schema specifies that an attribute must be unique, OneTable will create a special item in the database to enforce the uniqueness. This item will be an instance of the Unique model with the primary key set to `_unique#Scope#Model#Attribute#Value`. The created item and the unique item will be created in a transparent transaction so that the item will be created only if all the unique fields are truly unique.  The `remove` API will similarly remove the special unique item.
+
+A property may be be unique with a defined domain via the "scope" model schema property. The scope template will be expanded at runtime and the scope value will be incorporated into the unique attribute. This is useful to ensure an attribute is unique within a reduced domain. For example, you may want an item to be unique only within a given user's account instead of over all accounts. To achieve this, set the scope to be the user's ID.
 
 When a unique field for an item is updated, the prior item value must be read first so that the unique item can be deleted. If you do an update and do not specify params.return == 'NONE', the update API must return the full updated item. This incurs an additional `get` request to fetch the updated values as DynamoDB transactions do not return item values. There is thus additional I/O and overhead for unique items, so take care when designating attributes as unique in high update volume items.
 
