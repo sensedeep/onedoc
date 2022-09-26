@@ -15,6 +15,7 @@ The following attribute properties are supported:
 | reference | `string` | Describes a reference to another entity item. Format is: model:index:attribute=src-attribute,... |
 | schema | `object` | Nested schema. |
 | scope | `string` | Scope within which a unique attribute will be created. This is a template value to incorporate with the unique attributes. When expanded, this value is added to the unique attribute created for unique fields. Default to null.|
+| timestamp | `boolean` | Set to true to flag this field as a generated timestamp. Only used with Typescript so the generated type signature for the create() API will not require timestamp properties to be provided. |
 | ttl | `boolean` | Set to true to convert a supplied date value to a DynamoDB TTL seconds value. The supplied date value can be a Date instance, a number representing a Unix epoch in milliseconds since Jan 1, 1970 or a string that can be parsed by Date.parse. OneTable will divide the Javascript date value by 1000 to get a DynamoDB TTL seconds value. |
 | type | `Type or string` | Type to use for the attribute. |
 | unique | `boolean` | Set to true to enforce uniqueness for this attribute. See the "scope" property to define a reduced scope for the unique attribute. Default false. |
