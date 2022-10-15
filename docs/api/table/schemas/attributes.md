@@ -5,7 +5,8 @@ The following attribute properties are supported:
 | crypt | `boolean` | Set to true to encrypt the data before writing. |
 | default | `string` | Default value to use when creating model items or when reading items without a value.|
 | enum | `array` | List of valid string values for the attribute. |
-| generate | `string|boolean` | Set to 'ulid' or 'uuid' to automatically create a new ID value for the attribute when creating new items. Set to true to use a custom ID generator defined via the Table params.generate option. Default to null. |
+| encoding | `array` | Define how an attribute is encoded in a value template. |
+| generate | `string|boolean` | Set to 'uid', 'ulid' or 'uuid' to automatically create a new ID value for the attribute when creating new items. Set to true to use a custom ID generator defined via the Table params.generate option. Default to null. |
 | hidden | `boolean` | Set to true to omit the attribute in the returned Javascript results. Attributes with a "value" template defined will by hidden by default. Default to the schema params value. |
 | isoDates | `boolean` | Set to true to store dates as Javascript ISO strings vs epoch numerics. If unset, the field will use the table default value for isoDates. Default to the schema params value. |
 | items | `object` | Nested schema used to enforce types for items in an array if the attribute type is `Array`.
@@ -24,6 +25,34 @@ The following attribute properties are supported:
 
 
 If the `default` property defines the default value for an attribute. If no value is provided for the attribute when creating a new item, the `default` value will be used.
+
+The `encoding` property defines how an attribute is encoded in a value template. It is useful to save redundantly storing attributes separately when they are encoded into other attribute via value templates. If you have an attribute that is used in value template, it is redundant to store that attribute separately. For example:
+
+```
+User: {
+    pk:              { type: 'string', value: 'account#${accountId}' },
+    sk:              { type: 'string', value: 'user#${id}' },
+    accountId: { type: 'string', generate: 'uid' },
+    id:              { type: 'string', generate: 'uid' },
+}
+```
+
+In this example, the accountId and user ID are encoded in the PK and SK and are also stored redundantly in accountId and id. To save space, use encode:
+
+```
+User: {
+    pk:              { type: 'string', value: 'account#${accountId}' },
+    sk:              { type: 'string', value: 'user#${id}' },
+    accountId: { type: 'string', generate: 'uid', encode: ['pk', '#', 1] },
+    id:              { type: 'string', generate: 'uid', encode: ['sk', '#', 1] },
+}
+```
+
+The encode property value is an array with three components. It specifies the attribute name encoding the property, what is the separator delimiting the portions of the value template and the index of the attribute (when split at the delimiters). i.e. the accountId is encoded in **pk** attribute and the **accountId** is found at the 1st embedded component in the pk. When data items are create or queried, you can provide and access the encoded property via named references. i.e. The encoding is transparent.
+
+The `generate` property will generate an attribute value when creating new items. If set to 'uuid', then a non-crypto grade UUIDv4 format ID will be generated. If set to ULID, a crypto-grade, time-sortable random ID will be created. If set to 'uid' a shorter 10 character ID will be created.
+
+You can also use and "generate: 'uid(NN)'" to generate shorter, less unique identifiers. A UID by default is ten letters long and supports a similar charset as the ULID (Uppercase and digits, base 32 excluding I, L, O and U.). So a 10 character UID is 32^10 which is over 1 quintillion possibilities. You can supply the length to the generate value to get an arbitrary length. For example: generate: 'uid(16)'
 
 If the `hidden` property is set to true, the attribute will be defined in the DynamoDB database table, but will be omitted in the returned Javascript results.
 
