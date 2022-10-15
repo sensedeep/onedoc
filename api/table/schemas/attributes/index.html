@@ -179,7 +179,7 @@
             
             
   <a href="https://www.npmjs.com/package/dynamodb-onetable">
-      <span><b>New release 2.5.0</b> on NPM,</span>
+      <span><b>New release 2.5.1</b> on NPM,</span>
   </a> &nbsp;
   <a href="https://twitter.com/sensedeepcloud">
     updates at <strong>@sensedeepcloud</strong> on
@@ -2313,9 +2313,14 @@
 <td>List of valid string values for the attribute.</td>
 </tr>
 <tr>
+<td>encoding</td>
+<td align="center"><code>array</code></td>
+<td>Define how an attribute is encoded in a value template.</td>
+</tr>
+<tr>
 <td>generate</td>
 <td align="center"><code>string|boolean</code></td>
-<td>Set to 'ulid' or 'uuid' to automatically create a new ID value for the attribute when creating new items. Set to true to use a custom ID generator defined via the Table params.generate option. Default to null.</td>
+<td>Set to 'uid', 'ulid' or 'uuid' to automatically create a new ID value for the attribute when creating new items. Set to true to use a custom ID generator defined via the Table params.generate option. Default to null.</td>
 </tr>
 <tr>
 <td>hidden</td>
@@ -2395,12 +2400,41 @@
 </tbody>
 </table>
 <p>If the <code>default</code> property defines the default value for an attribute. If no value is provided for the attribute when creating a new item, the <code>default</code> value will be used.</p>
+<p>The <code>encoding</code> property defines how an attribute is encoded in a value template. It is useful to save redundantly storing attributes separately when they are encoded into other attribute via value templates. If you have an attribute that is used in value template, it is redundant to store that attribute separately. For example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>User: {
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    pk:              { type: &#39;string&#39;, value: &#39;account#${accountId}&#39; },
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    sk:              { type: &#39;string&#39;, value: &#39;user#${id}&#39; },
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    accountId: { type: &#39;string&#39;, generate: &#39;uid&#39; },
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    id:              { type: &#39;string&#39;, generate: &#39;uid&#39; },
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>}
+</code></pre></div></td></tr></table></div>
+<p>In this example, the accountId and user ID are encoded in the PK and SK and are also stored redundantly in accountId and id. To save space, use encode:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>User: {
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>    pk:              { type: &#39;string&#39;, value: &#39;account#${accountId}&#39; },
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>    sk:              { type: &#39;string&#39;, value: &#39;user#${id}&#39; },
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    accountId: { type: &#39;string&#39;, generate: &#39;uid&#39;, encode: [&#39;pk&#39;, &#39;#&#39;, 1] },
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    id:              { type: &#39;string&#39;, generate: &#39;uid&#39;, encode: [&#39;sk&#39;, &#39;#&#39;, 1] },
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>}
+</code></pre></div></td></tr></table></div>
+<p>The encode property value is an array with three components. It specifies the attribute name encoding the property, what is the separator delimiting the portions of the value template and the index of the attribute (when split at the delimiters). i.e. the accountId is encoded in <strong>pk</strong> attribute and the <strong>accountId</strong> is found at the 1st embedded component in the pk. When data items are create or queried, you can provide and access the encoded property via named references. i.e. The encoding is transparent.</p>
+<p>The <code>generate</code> property will generate an attribute value when creating new items. If set to 'uuid', then a non-crypto grade UUIDv4 format ID will be generated. If set to ULID, a crypto-grade, time-sortable random ID will be created. If set to 'uid' a shorter 10 character ID will be created.</p>
+<p>You can also use and "generate: 'uid(NN)'" to generate shorter, less unique identifiers. A UID by default is ten letters long and supports a similar charset as the ULID (Uppercase and digits, base 32 excluding I, L, O and U.). So a 10 character UID is 32^10 which is over 1 quintillion possibilities. You can supply the length to the generate value to get an arbitrary length. For example: generate: 'uid(16)'</p>
 <p>If the <code>hidden</code> property is set to true, the attribute will be defined in the DynamoDB database table, but will be omitted in the returned Javascript results.</p>
 <p>If the <code>isoDates</code> property is defined and not-null, it will override the table isoDates value. Set to true to store the field date value as an ISO date string. Set to false to store the date as a Unix epoch date number.</p>
 <p>The <code>map</code> property can be used to set an alternate or shorter attribute name when storing in the database. The map value may be a simple string that will be used as the actual attribute name.</p>
 <p>Alternatively, the map value can be a pair of the form: 'obj.name', where the attribute value will be stored in an object attribute named "obj" with the given name <code>name</code>. Such two-level mappings may be used to map multiple properties to a single table attribute. This is helpful for the design pattern where GSIs project keys plus a single 'data' field and have multiple models map relevant attributes into the projected 'data' attribute. OneTable will automatically pack and unpack attribute values into the mapped attribute. Note: APIs that write to a mapped attribute must provide all the properties that map to that attribute on the API call. Otherwise an incomplete attribute would be written to the table.</p>
 <p>The <code>reference</code> attribute documents a reference to another entity by using this attribute in combination with other attributes. The format is:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>model:index:attribute<span class="o">=</span>source-attribute,...
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>model:index:attribute<span class="o">=</span>source-attribute,...
 </code></pre></div></td></tr></table></div>
 <p>The "model" selects that target entity model of the reference using the nominated "index" where the target "attribute" is determined by the associated source-attribute. Multiple attributes can be specified. Tools can use this reference to navigate from one entity item to another.</p>
 <p>The <code>schema</code> property permits nested field definitions. The parent property must be an Object as the type of items in arrays are defined using the <code>items</code> property.</p>
@@ -2412,10 +2446,10 @@
 <p>If you call <code>find</code> or any query API and do not provide all the properties needed to resolve the complete value template. i.e. some of the ${var} references are unresolved, OneTable will take the resolved leading portion and create a <code>begins with</code> key condition for that portion of the value template.</p>
 <h2 id="value-and-default-functions">Value and Default Functions</h2>
 <p>You may set the <code>value</code> property to a function to compute the value at runtime. This practice is not advised if you wish to use tools like SenseDeep to manage your schemas as the schema will no longer be literal as it will now contain embedded code. The <code>value</code> function invocation signature is:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">value</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">properties</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">value</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">properties</span><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <p>Similarly, the default property may be set to a function to compute the value at runtime. The <code>default</code> function invocation signature is:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">(</span><span class="nx">model</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">properties</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">(</span><span class="nx">model</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">properties</span><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 
 
