@@ -5,7 +5,7 @@ The following attribute properties are supported:
 | crypt | `boolean` | Set to true to encrypt the data before writing. |
 | default | `string` | Default value to use when creating model items or when reading items without a value.|
 | enum | `array` | List of valid string values for the attribute. |
-| encoding | `array` | Define how an attribute is encoded in a value template. |
+| encode | `array` | Define how an attribute is encoded in a value template. |
 | generate | `string|boolean` | Set to 'uid', 'ulid' or 'uuid' to automatically create a new ID value for the attribute when creating new items. Set to true to use a custom ID generator defined via the Table params.generate option. Default to null. |
 | hidden | `boolean` | Set to true to omit the attribute in the returned Javascript results. Attributes with a "value" template defined will by hidden by default. Default to the schema params value. |
 | isoDates | `boolean` | Set to true to store dates as Javascript ISO strings vs epoch numerics. If unset, the field will use the table default value for isoDates. Default to the schema params value. |
@@ -26,7 +26,7 @@ The following attribute properties are supported:
 
 If the `default` property defines the default value for an attribute. If no value is provided for the attribute when creating a new item, the `default` value will be used.
 
-The `encoding` property defines how an attribute is encoded in a value template. It is useful to save redundantly storing attributes separately when they are encoded into other attribute via value templates. If you have an attribute that is used in value template, it is redundant to store that attribute separately. For example:
+The `encode` property defines how an attribute is encoded in a value template. It is useful to save redundantly storing attributes separately when they are encoded into other attribute via value templates. If you have an attribute that is used in value template, it is redundant to store that attribute separately. For example:
 
 ```
 User: {
