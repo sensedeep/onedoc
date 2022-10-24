@@ -28,7 +28,7 @@ If the schema specifies that an attribute must be unique, OneTable will create a
 
 A property may be be unique with a defined domain via the "scope" model schema property. The scope template will be expanded at runtime and the scope value will be incorporated into the unique attribute. This is useful to ensure an attribute is unique within a reduced domain. For example, you may want an item to be unique only within a given user's account instead of over all accounts. To achieve this, set the scope to be the user's ID.
 
-When a unique field for an item is updated, the prior item value must be read first so that the unique item can be deleted. If you do an update and do not specify params.return == 'NONE', the update API must return the full updated item. This incurs an additional `get` request to fetch the updated values as DynamoDB transactions do not return item values. There is thus additional I/O and overhead for unique items, so take care when designating attributes as unique in high update volume items.
+When a unique field for an item is updated, the prior item value must be read first so that the unique item can be deleted. By default, updates() on an item with unique fields will not return a value and will issue a warning to the console. This is because DynamoDB transactions do not return the updated items. If you do an update and specify {return: 'NONE'} the warning will be squelched. If you must return the full updated item, use {return: 'get'} to fetch the updated values.
 
 The optional params are described in [Model API Params](../params).
 
@@ -262,6 +262,8 @@ The `params.add` parameter may be set to a value to add to the property.
 The `params.delete` parameter may be set to a hash, where the hash keys are the property sets to modify and the values are the items in the sets to remove.
 The `params.remove` parameter may be set to a list of properties to remove.
 The `params.set` parameter may be set to a hash, where the hash keys are the properties to modify and the values are expresions.
+
+The `params.return` parameter may be set to 'NONE' to return no result or 'get' to perform a transparent get() call to retrieve the updated item. Normally, update() will return the updated item automatically, however, it the item has unique attributes, a transaction is used which does not return the updated item. In this case, use {return: 'get'} to retrieve and return the updated item.
 
 The propertys provided to params.add, delete, remove and set are property names (not mapped attribute names).
 
