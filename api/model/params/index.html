@@ -2451,7 +2451,7 @@
 <tr>
 <td>return</td>
 <td align="center">string</td>
-<td>parameter controls the returned values for create() and update() via the ReturnValues DynamoDB API parameter. Set to true, false or 'ALL_NEW', 'ALL_OLD', 'NONE', 'UPDATED_OLD' or 'UPDATED_NEW'. The value true, is an alias for ALL_NEW. The value false is an alias for 'NONE'. The create() API defaults to 'ALL_NEW'. The update() API defaults to 'ALL_NEW' unless the item has unique properties the return parameter must be specified.</td>
+<td>parameter controls the returned values for create() and update() via the ReturnValues DynamoDB API parameter. Set to true, false or 'ALL_NEW', 'ALL_OLD', 'NONE', 'UPDATED_OLD' or 'UPDATED_NEW'. The value true, is an alias for ALL_NEW. The value false is an alias for 'NONE'. The create() API defaults to 'ALL_NEW'. The update() API defaults to 'ALL_NEW' unless the item has unique properties the return parameter must be specified. For update() calls on items that have unique attributes defined in the schema, you can set to 'get' to perform a transparent get() to retrieve the updated item. This is necessary as updating unique items uses transactions which do not return the updated value.</td>
 </tr>
 <tr>
 <td>reverse</td>
