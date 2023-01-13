@@ -12,4 +12,4 @@ sync:
 	git checkout main
 
 promote: build
-	mkdocs gh-deploy
+	mkdocs gh-deploy --ignore-version

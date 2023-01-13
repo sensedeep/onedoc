@@ -18,7 +18,7 @@ These are the parameter values for the `params` argument.
 | exists | `boolean` | Set to true for `create`, `delete` or `update` APIs to verify if an item of the same key exists or not. Defaults to false for `create`, null for `delete` and true for `update` Set to null to disable checking either way.|
 | fields | `array` | List of properties to return. This sets the ProjectionExpression. Default null. |
 | follow | `boolean` | Refetch the item using the returned keys to retrieve the full item. Useful for indexes that are KEYS_ONLY. Default null. |
-| hidden | `boolean` | Hide key attributes in Javascript properties. Overrides model.hidden. Default null. |
+| hidden | `boolean` | Return hidden attributes in Javascript properties. Default Table params.hidden. |
 | index | `string` | Name of index to utilize. Defaults to 'primary'|
 | limit | `number` | Set to the maximum number of items to return from a find / scan.|
 | log | `boolean` | Set to true to force the API call to be logged at the 'data' level. Requires that a 'logger' be defined via the Table constructor. Defaults to false.|

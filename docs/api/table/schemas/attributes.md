@@ -7,7 +7,7 @@ The following attribute properties are supported:
 | enum | `array` | List of valid string values for the attribute. |
 | encode | `array` | Define how an attribute is encoded in a value template. |
 | generate | `string|boolean` | Set to 'uid', 'ulid' or 'uuid' to automatically create a new ID value for the attribute when creating new items. Set to true to use a custom ID generator defined via the Table params.generate option. Default to null. |
-| hidden | `boolean` | Set to true to omit the attribute in the returned Javascript results. Attributes with a "value" template defined will by hidden by default. Default to the schema params value. |
+| hidden | `boolean` | Set to true to hide the attribute in the returned Javascript results. Attributes with a "value" template defined will by hidden by default. Default to the Table params value. |
 | isoDates | `boolean` | Set to true to store dates as Javascript ISO strings vs epoch numerics. If unset, the field will use the table default value for isoDates. Default to the schema params value. |
 | items | `object` | Nested schema used to enforce types for items in an array if the attribute type is `Array`.
 | map | `string` | Map the field value to a different attribute name when storing in the database. Can be a simple attribute name or a compound "obj.name" where multiple fields can be stored in a single attribute containing an object with all the fields. |
