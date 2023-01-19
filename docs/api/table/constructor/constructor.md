@@ -24,7 +24,7 @@ The Table constructor takes a parameter of type `object` with the following prop
 | logger | `boolean|object` | Set to true to log to the console or set to a logging function(type, message, properties). Type is info|error|trace|exception. Default is false. |
 | metrics | `object` | Configure metrics. Default null.|
 | name | `string` | The name of your DynamoDB table. |
-| partial | `boolean` | Allow partial object updates. Default is true |
+| partial | `boolean` | Allow partial object updates. This may be overridden on a schema per-field, or per-API basis. Default is true. |
 | schema | `string` | Definition of your DynamoDB indexes and models. |
 | senselogs | `object` | Set to a SenseLogs logger instance instead `logger`. Default null. |
 | transform | `function` | Callback function to be invoked to format and parse the data before reading and writing. |
@@ -83,12 +83,14 @@ const schema = {
             schema: {
                 address: {type: 'string'},
                 zip: {type: 'number'},
-            },
-        },
-    } as const,
+            }
+        }
+    }
   }
 }
 ```
+
+Partial can also be defined in a schema field definition and in the API params. The API params value of partial will override, the per-field definition which will override the table `partial` value.
 
 ## AWS DynamoDB Accelerator (DAX)
 

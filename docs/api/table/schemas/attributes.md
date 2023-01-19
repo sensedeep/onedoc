@@ -12,6 +12,7 @@ The following attribute properties are supported:
 | items | `object` | Nested schema used to enforce types for items in an array if the attribute type is `Array`.
 | map | `string` | Map the field value to a different attribute name when storing in the database. Can be a simple attribute name or a compound "obj.name" where multiple fields can be stored in a single attribute containing an object with all the fields. |
 | nulls | `boolean` | Set to true to store null values or false to remove attributes set to null. Default false. |
+| partial | `boolean` | Allow partial object updates for this field. May be used only when the field type is an object with nested schema. This overrides any value for partial given via the Table constructor. This may be overridden by an API params.partial value. Default is null. |
 | required | `boolean` | Set to true if the attribute is required. Default to the schema params value. |
 | reference | `string` | Describes a reference to another entity item. Format is: model:index:attribute=src-attribute,... |
 | schema | `object` | Nested schema. |

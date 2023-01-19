@@ -26,6 +26,7 @@ These are the parameter values for the `params` argument.
 | next | `object` | Starting key for the result set. This is used to set the ExclusiveStartKey when doing a find/scan. Typically set to the result.next value returned on a previous find/scan. |
 | prev | `object` | Starting key for the result set when requesting a previous page. This is used to set the ExclusiveStartKey when doing a find/scan in reverse order. Typically set to the result.prev value returned on a previous find/scan.|
 | parse | `boolean` | Parse DynamoDB response into native Javascript properties. Defaults to true.|
+| partial | `boolean` | Allow partial object updates for this API call. This overrides any field schema, or Table constructor "partial" definitions. Default is null. |
 | postFormat | `function` | Hook to invoke on the formatted API command just before execution. Passed the `model` and `cmd`, expects updated `cmd` to be returned. Cmd is an object with properties for the relevant DynamoDB API.|
 | remove | `array` | Set to a list of of attributes to remove from the item.|
 | reprocess | `boolean` | Set to true to enable batchWrite to retry unprocessed items. Defaults to true|
