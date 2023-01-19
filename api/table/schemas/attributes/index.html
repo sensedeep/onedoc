@@ -2348,6 +2348,11 @@
 <td>Set to true to store null values or false to remove attributes set to null. Default false.</td>
 </tr>
 <tr>
+<td>partial</td>
+<td align="center"><code>boolean</code></td>
+<td>Allow partial object updates for this field. May be used only when the field type is an object with nested schema. This overrides any value for partial given via the Table constructor. This may be overridden by an API params.partial value. Default is null.</td>
+</tr>
+<tr>
 <td>required</td>
 <td align="center"><code>boolean</code></td>
 <td>Set to true if the attribute is required. Default to the schema params value.</td>

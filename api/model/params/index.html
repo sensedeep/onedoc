@@ -2434,6 +2434,11 @@
 <td>Parse DynamoDB response into native Javascript properties. Defaults to true.</td>
 </tr>
 <tr>
+<td>partial</td>
+<td align="center"><code>boolean</code></td>
+<td>Allow partial object updates for this API call. This overrides any field schema, or Table constructor "partial" definitions. Default is null.</td>
+</tr>
+<tr>
 <td>postFormat</td>
 <td align="center"><code>function</code></td>
 <td>Hook to invoke on the formatted API command just before execution. Passed the <code>model</code> and <code>cmd</code>, expects updated <code>cmd</code> to be returned. Cmd is an object with properties for the relevant DynamoDB API.</td>

@@ -2369,7 +2369,7 @@
 <tr>
 <td>partial</td>
 <td align="center"><code>boolean</code></td>
-<td>Allow partial object updates. Default is true</td>
+<td>Allow partial object updates. This may be overridden on a schema per-field, or per-API basis. Default is true.</td>
 </tr>
 <tr>
 <td>schema</td>
@@ -2472,12 +2472,13 @@
 <a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">            </span><span class="nx">schema</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">                </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="p">},</span><span class="w"></span>
 <a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">                </span><span class="nx">zip</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;number&#39;</span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">            </span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">        </span><span class="p">},</span><span class="w"></span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kd">const</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">            </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
 <a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">  </span><span class="p">}</span><span class="w"></span>
 <a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
+<p>Partial can also be defined in a schema field definition and in the API params. The API params value of partial will override, the per-field definition which will override the table <code>partial</code> value.</p>
 <h2 id="aws-dynamodb-accelerator-dax">AWS DynamoDB Accelerator (DAX)</h2>
 <p>The Amazon DynamoDB Accelerator is a fully managed, highly available, in-memory cache for DynamoDB. OneTable supports DAX.</p>
 <p>Currently, the AWS SDK V3 does not support DAX via by the DynamoDBClient package so you must use the AWS SDK V2.</p>
