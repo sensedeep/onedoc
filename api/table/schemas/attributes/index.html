@@ -166,11 +166,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#value-and-default-functions" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -1292,16 +1287,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Model Attributes
-  </span>
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1310,32 +1295,6 @@
   </span>
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#value-and-default-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Value and Default Functions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -2256,23 +2215,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#value-and-default-functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Value and Default Functions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2449,13 +2391,6 @@
 <p>The <code>value</code> property defines a literal string template that is used to compute the attribute value. This is useful for computing key values from other properties, creating compound (composite) sort keys or for packing fields into a single DynamoDB attribute when using GSIs.</p>
 <p>String templates are similar to JavaScript string templates. The template string may contain <code>${name}</code> references to other fields defined in the entity model. If any of the variable references are undefined when an API is called, the computed field value will be undefined and the attribute will be omitted from the operation. The variable <code>name</code> may be of the form: <code>${name:size:pad}</code> where the name will be padded to the specified size using the given <code>pad</code> character (which default to '0'). This is useful for zero padding numbers so that they sort numerically.</p>
 <p>If you call <code>find</code> or any query API and do not provide all the properties needed to resolve the complete value template. i.e. some of the ${var} references are unresolved, OneTable will take the resolved leading portion and create a <code>begins with</code> key condition for that portion of the value template.</p>
-<h2 id="value-and-default-functions">Value and Default Functions</h2>
-<p>You may set the <code>value</code> property to a function to compute the value at runtime. This practice is not advised if you wish to use tools like SenseDeep to manage your schemas as the schema will no longer be literal as it will now contain embedded code. The <code>value</code> function invocation signature is:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">value</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">properties</span><span class="p">)</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
-<p>Similarly, the default property may be set to a function to compute the value at runtime. The <code>default</code> function invocation signature is:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">(</span><span class="nx">model</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">properties</span><span class="p">)</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
 
 
 
