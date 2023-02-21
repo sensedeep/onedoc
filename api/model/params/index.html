@@ -55,40 +55,35 @@
 
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var _paq = (window._paq = window._paq || []);
-    _paq.push(["trackPageView"]);
-    _paq.push(["enableLinkTracking"]);
-    (function () {
-      var u = "https://embedthis.matomo.cloud/";
-      _paq.push(["setTrackerUrl", u + "matomo.php"]);
-      _paq.push(["setSiteId", "3"]);
-      var d = document,
-        g = d.createElement("script"),
-        s = d.getElementsByTagName("script")[0];
-      g.async = true;
-      g.src = "//cdn.matomo.cloud/embedthis.matomo.cloud/matomo.js";
-      s.parentNode.insertBefore(g, s);
-    })();
-  });
+  document.addEventListener("DOMContentLoaded", function() {
+      var _paq = window._paq = window._paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://embedthis.matomo.cloud/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '3']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src='//cdn.matomo.cloud/embedthis.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+})
 </script>
 
 <script async>
   (function () {
-    var g = document.createElement("script"),
-      s = document.getElementsByTagName("script")[0];
+    var g = document.createElement("script"), s = document.getElementsByTagName("script")[0];
     g.async = true;
-    g.src = "https://api.admin.embedthis.com/api/metrics/visit?site=onetable";
-    s.parentNode.insertBefore(g, s);
-  })();
-</script>
+    g.src = "https://api.admin.embedthis.com/api/metrics/visit?site=onetable-doc";
+  s.parentNode.insertBefore(g, s);
+})();
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
 
     
     
-     
+    
+
   </head>
   
   
@@ -119,17 +114,16 @@
           <div class="md-banner__inner md-grid md-typeset">
             
             
-<a href="https://www.npmjs.com/package/dynamodb-onetable">
-  <span><b>New release 2.6.1</b> on NPM,</span>
-</a>
-&nbsp;
-<a href="https://twitter.com/sensedeepcloud">
-  updates at <strong>@sensedeepcloud</strong> on
-  <span class="twemoji twitter">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
-  </span>
-  Twitter
-</a>
+  <a href="https://www.npmjs.com/package/dynamodb-onetable">
+      <span><b>New release 2.5.1</b> on NPM,</span>
+  </a> &nbsp;
+  <a href="https://twitter.com/sensedeepcloud">
+    updates at <strong>@sensedeepcloud</strong> on
+    <span class="twemoji twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </span>
+    Twitter
+  </a>
 
           </div>
           
@@ -2769,44 +2763,189 @@
 <p>Most <code>Model</code> APIs and some <code>Table</code> APIs accept a <code>params</code> hash argument that controls the API operation.</p>
 <h2 id="params">Params</h2>
 <p>These are the parameter values for the <code>params</code> argument.</p>
-<p>| Property      |    Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------- | :--------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------- | ----------------------------------------------------------------------------------------- |
-| add           |  <code>object</code>  | Used to atomically add a value to an attribute. Set to an object containing the attribute name and value to add. Example: add: {balance: 1}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| batch         |  <code>object</code>  | Accumulated batched API calls. Invoke with <code>Table.batch*</code>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| capacity      |  <code>string</code>  | Set to <code>INDEXES</code>, <code>TOTAL</code> or <code>NONE</code> to control the capacity metric. Returned in items.capacity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| client        |  <code>object</code>  | Set to a DynamoDB DocumentClient instance to overide the table default client. Defaults to null                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| consistent    | <code>boolean</code>  | Set to true to stipulate that consistent reads are required.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| context       |  <code>object</code>  | Optional context hash of properties to blend with API properties when creating or updating items. This overrides the Table.context. Setting to <code>{}</code> is a useful one-off way to ignore the context for this API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| count         | <code>boolean</code>  | Return a count of matching items instead of the result set for a find/query. The count is returned as a <code>count</code> property in the returned items array. Default false.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| delete        |  <code>object</code>  | Used to delete items from a <code>set</code> attribute. Set to an object containing the attribute name and item to delete. Example: delete: {colors: 'blue'}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| execute       | <code>boolean</code>  | Set to true to execute the API. If false, return the formatted command and do not execute. Note: if set on an update of a unique field which requires a transaction and multiple commands, the commands will not be returned. To see the commands, set the parmas.log to true. Execute defaults to true.                                                                                                                                                                                                                                                                                                                                                                                                             |
-| exists        | <code>boolean</code>  | Set to true for <code>create</code>, <code>delete</code> or <code>update</code> APIs to verify if an item of the same key exists or not. Defaults to false for <code>create</code>, null for <code>delete</code> and true for <code>update</code> Set to null to disable checking either way.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| fields        |  <code>array</code>   | List of properties to return. This sets the ProjectionExpression. Default null.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| follow        | <code>boolean</code>  | Refetch the item using the returned keys to retrieve the full item. Useful for indexes that are KEYS_ONLY. Default null.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| hidden        | <code>boolean</code>  | Return hidden attributes in Javascript properties. Default Table params.hidden.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| index         |  <code>string</code>  | Name of index to utilize. Defaults to 'primary'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| limit         |  <code>number</code>  | Set to the maximum number of items to return from a find / scan.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| log           | <code>boolean</code>  | Set to true to force the API call to be logged at the 'data' level. Requires that a 'logger' be defined via the Table constructor. Defaults to false.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| many          | <code>boolean</code>  | Set to true to enable deleting multiple items. Default to false.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| next          |  <code>object</code>  | Starting key for the result set. This is used to set the ExclusiveStartKey when doing a find/scan. Typically set to the result.next value returned on a previous find/scan.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| prev          |  <code>object</code>  | Starting key for the result set when requesting a previous page. This is used to set the ExclusiveStartKey when doing a find/scan in reverse order. Typically set to the result.prev value returned on a previous find/scan.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| parse         | <code>boolean</code>  | Parse DynamoDB response into native Javascript properties. Defaults to true.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| partial       | <code>boolean</code>  | Allow partial object updates for this API call. This overrides any field schema, or Table constructor "partial" definitions. Default is null.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| postFormat    | <code>function</code> | Hook to invoke on the formatted API command just before execution. Passed the <code>model</code> and <code>cmd</code>, expects updated <code>cmd</code> to be returned. Cmd is an object with properties for the relevant DynamoDB API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| remove        |  <code>array</code>   | Set to a list of of attributes to remove from the item.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| reprocess     | <code>boolean</code>  | Set to true to enable batchWrite to retry unprocessed items. Defaults to true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| return        |   string   | parameter controls the returned values for create() and update() via the ReturnValues DynamoDB API parameter. Set to true, false or 'ALL_NEW', 'ALL_OLD', 'NONE', 'UPDATED_OLD' or 'UPDATED_NEW'. The value true, is an alias for ALL_NEW. The value false is an alias for 'NONE'. The create() API defaults to 'ALL_NEW'. The update() API defaults to 'ALL_NEW' unless the item has unique properties the return parameter must be specified. For update() calls on items that have unique attributes defined in the schema, you can set to 'get' to perform a transparent get() to retrieve the updated item. This is necessary as updating unique items uses transactions which do not return the updated value. |
-| reverse       | <code>boolean</code>  | Set to true to reverse the order of items returned.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| select        |  <code>string</code>  | Determine the returned attributes. Set to ALL_ATTRIBUTES                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | ALL_PROJECTED_ATTRIBUTES | SPECIFIC_ATTRIBUTES | COUNT. Note: recommended to use params.count instead of COUNT. Default to ALL_ATTRIBUTES. |
-| set           |  <code>object</code>  | Used to atomically set attribute vaules to an expression value. Set to an object containing the attribute names and values to assign. The values are expressions similar to Where Clauses with embedded ${attributeReferences} and {values}. See <a href="#where-clauses">Where Clause</a> for more details.                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| stats         |  <code>object</code>  | Set to an object to receive performance statistics. Defaults to null.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| substitutions |  <code>object</code>  | Variables that can be referenced in a where clause. Values will be added to ExpressionAttributeValues when used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| throw         | <code>boolean</code>  | Set to false to not throw exceptions when an API request fails. Defaults to true.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| transaction   |  <code>object</code>  | Accumulated transactional API calls. Invoke with <code>Table.transaction</code>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| type          |  <code>string</code>  | Add a <code>type</code> condition to the <code>create</code>, <code>delete</code> or <code>update</code> API call. Set <code>type</code> to the DynamoDB required type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| where         |  <code>string</code>  | Define a filter or update conditional expression template. Use <code>${attribute}</code> for attribute names, <code>@{var}</code> for variable substitutions and <code>{value}</code> for values. OneTable will extract attributes and values into the relevant ExpressionAttributeNames and ExpressionAttributeValues.                                                                                                                                                                                                                                                                                                                                                                                                                               |</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th align="center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add</td>
+<td align="center"><code>object</code></td>
+<td 1="1" balance:="balance:">Used to atomically add a value to an attribute. Set to an object containing the attribute name and value to add. Example: add:</td>
+</tr>
+<tr>
+<td>batch</td>
+<td align="center"><code>object</code></td>
+<td>Accumulated batched API calls. Invoke with <code>Table.batch*</code></td>
+</tr>
+<tr>
+<td>capacity</td>
+<td align="center"><code>string</code></td>
+<td>Set to <code>INDEXES</code>, <code>TOTAL</code>  or <code>NONE</code> to control the capacity metric. Returned in items.capacity</td>
+</tr>
+<tr>
+<td>client</td>
+<td align="center"><code>object</code></td>
+<td>Set to a DynamoDB DocumentClient instance to overide the table default client. Defaults to null</td>
+</tr>
+<tr>
+<td>consistent</td>
+<td align="center"><code>boolean</code></td>
+<td>Set to true to stipulate that consistent reads are required.</td>
+</tr>
+<tr>
+<td>context</td>
+<td align="center"><code>object</code></td>
+<td>Optional context hash of properties to blend with API properties when creating or updating items. This overrides the Table.context. Setting to <code>{}</code> is a useful one-off way to ignore the context for this API.</td>
+</tr>
+<tr>
+<td>count</td>
+<td align="center"><code>boolean</code></td>
+<td>Return a count of matching items instead of the result set for a find/query. The count is returned as a <code>count</code> property in the returned items array. Default false.</td>
+</tr>
+<tr>
+<td>delete</td>
+<td align="center"><code>object</code></td>
+<td _blue_="'blue'" colors:="colors:">Used to delete items from a <code>set</code> attribute. Set to an object containing the attribute name and item to delete. Example: delete:</td>
+</tr>
+<tr>
+<td>execute</td>
+<td align="center"><code>boolean</code></td>
+<td>Set to true to execute the API. If false, return the formatted command and do not execute. Note: if set on an update of a unique field which requires a transaction and multiple commands, the commands will not be returned. To see the commands, set the parmas.log to true. Execute defaults to true.</td>
+</tr>
+<tr>
+<td>exists</td>
+<td align="center"><code>boolean</code></td>
+<td>Set to true for <code>create</code>, <code>delete</code> or <code>update</code> APIs to verify if an item of the same key exists or not. Defaults to false for <code>create</code>, null for <code>delete</code> and true for <code>update</code> Set to null to disable checking either way.</td>
+</tr>
+<tr>
+<td>fields</td>
+<td align="center"><code>array</code></td>
+<td>List of properties to return. This sets the ProjectionExpression. Default null.</td>
+</tr>
+<tr>
+<td>follow</td>
+<td align="center"><code>boolean</code></td>
+<td>Refetch the item using the returned keys to retrieve the full item. Useful for indexes that are KEYS_ONLY. Default null.</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td align="center"><code>boolean</code></td>
+<td>Return hidden attributes in Javascript properties. Default Table params.hidden.</td>
+</tr>
+<tr>
+<td>index</td>
+<td align="center"><code>string</code></td>
+<td>Name of index to utilize. Defaults to 'primary'</td>
+</tr>
+<tr>
+<td>limit</td>
+<td align="center"><code>number</code></td>
+<td>Set to the maximum number of items to return from a find / scan.</td>
+</tr>
+<tr>
+<td>log</td>
+<td align="center"><code>boolean</code></td>
+<td>Set to true to force the API call to be logged at the 'data' level. Requires that a 'logger' be defined via the Table constructor. Defaults to false.</td>
+</tr>
+<tr>
+<td>many</td>
+<td align="center"><code>boolean</code></td>
+<td>Set to true to enable deleting multiple items. Default to false.</td>
+</tr>
+<tr>
+<td>next</td>
+<td align="center"><code>object</code></td>
+<td>Starting key for the result set. This is used to set the ExclusiveStartKey when doing a find/scan. Typically set to the result.next value returned on a previous find/scan.</td>
+</tr>
+<tr>
+<td>prev</td>
+<td align="center"><code>object</code></td>
+<td>Starting key for the result set when requesting a previous page. This is used to set the ExclusiveStartKey when doing a find/scan in reverse order. Typically set to the result.prev value returned on a previous find/scan.</td>
+</tr>
+<tr>
+<td>parse</td>
+<td align="center"><code>boolean</code></td>
+<td>Parse DynamoDB response into native Javascript properties. Defaults to true.</td>
+</tr>
+<tr>
+<td>partial</td>
+<td align="center"><code>boolean</code></td>
+<td>Allow partial object updates for this API call. This overrides any field schema, or Table constructor "partial" definitions. Default is null.</td>
+</tr>
+<tr>
+<td>postFormat</td>
+<td align="center"><code>function</code></td>
+<td>Hook to invoke on the formatted API command just before execution. Passed the <code>model</code> and <code>cmd</code>, expects updated <code>cmd</code> to be returned. Cmd is an object with properties for the relevant DynamoDB API.</td>
+</tr>
+<tr>
+<td>remove</td>
+<td align="center"><code>array</code></td>
+<td>Set to a list of of attributes to remove from the item.</td>
+</tr>
+<tr>
+<td>reprocess</td>
+<td align="center"><code>boolean</code></td>
+<td>Set to true to enable batchWrite to retry unprocessed items. Defaults to true</td>
+</tr>
+<tr>
+<td>return</td>
+<td align="center">string</td>
+<td>parameter controls the returned values for create() and update() via the ReturnValues DynamoDB API parameter. Set to true, false or 'ALL_NEW', 'ALL_OLD', 'NONE', 'UPDATED_OLD' or 'UPDATED_NEW'. The value true, is an alias for ALL_NEW. The value false is an alias for 'NONE'. The create() API defaults to 'ALL_NEW'. The update() API defaults to 'ALL_NEW' unless the item has unique properties the return parameter must be specified. For update() calls on items that have unique attributes defined in the schema, you can set to 'get' to perform a transparent get() to retrieve the updated item. This is necessary as updating unique items uses transactions which do not return the updated value.</td>
+</tr>
+<tr>
+<td>reverse</td>
+<td align="center"><code>boolean</code></td>
+<td>Set to true to reverse the order of items returned.</td>
+</tr>
+<tr>
+<td>select</td>
+<td align="center"><code>string</code></td>
+<td>Determine the returned attributes. Set to ALL_ATTRIBUTES</td>
+</tr>
+<tr>
+<td>set</td>
+<td align="center"><code>object</code></td>
+<td>Used to atomically set attribute vaules to an expression value. Set to an object containing the attribute names and values to assign. The values are expressions similar to Where Clauses with embedded ${attributeReferences} and {values}. See <a href="#where-clauses">Where Clause</a> for more details.</td>
+</tr>
+<tr>
+<td>stats</td>
+<td align="center"><code>object</code></td>
+<td>Set to an object to receive performance statistics for find/scan. Defaults to null.</td>
+</tr>
+<tr>
+<td>substitutions</td>
+<td align="center"><code>object</code></td>
+<td>Variables that can be referenced in a where clause. Values will be added to ExpressionAttributeValues when used.</td>
+</tr>
+<tr>
+<td>throw</td>
+<td align="center"><code>boolean</code></td>
+<td>Set to false to not throw exceptions when an API request fails. Defaults to true.</td>
+</tr>
+<tr>
+<td>transaction</td>
+<td align="center"><code>object</code></td>
+<td>Accumulated transactional API calls. Invoke with <code>Table.transaction</code></td>
+</tr>
+<tr>
+<td>type</td>
+<td align="center"><code>string</code></td>
+<td>Add a <code>type</code> condition to the <code>create</code>, <code>delete</code> or <code>update</code> API call. Set <code>type</code> to the DynamoDB required type.</td>
+</tr>
+<tr>
+<td>where</td>
+<td align="center"><code>string</code></td>
+<td>Define a filter or update conditional expression template. Use <code>${attribute}</code> for attribute names, <code>@{var}</code> for variable substitutions and <code>{value}</code> for values. OneTable will extract attributes and values into the relevant ExpressionAttributeNames and ExpressionAttributeValues.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="stats">Stats</h2>
-<p>If <code>stats</code> is defined, API operations will return the following statistics in the stats object:</p>
+<p>If <code>stats</code> is defined, find/query/scan operations will return the following statistics in the stats object:</p>
 <ul>
 <li>count -- Number of items returned</li>
 <li>scanned -- Number of items scanned</li>
@@ -2814,7 +2953,7 @@
 </ul>
 <h2 id="transformations">Transformations</h2>
 <p>The <code>transform</code> property may be used to format data prior to writing into the database and parse it when reading back. This can be useful to convert to alternate data representations in your table. The transform signature is:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">transform</span><span class="p">(</span><span class="nx">model</span><span class="p">,</span><span class="w"> </span><span class="nx">operation</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">properties</span><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">transform</span><span class="p">(</span><span class="nx">model</span><span class="p">,</span><span class="w"> </span><span class="nx">operation</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">properties</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>The <code>operation</code> parameter is set to <code>read</code> or <code>write</code>. The <code>name</code> argument is set to the field attribute name.</p>
 
@@ -2924,9 +3063,11 @@
     
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
-     
+    
+  
       <script src="../../../assets/javascripts/bundle.7ce0e818.min.js"></script>
       
-     
+    
+
   </body>
 </html>
