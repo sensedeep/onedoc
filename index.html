@@ -53,27 +53,33 @@
 
 
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-      var _paq = window._paq = window._paq || [];
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u="https://embedthis.matomo.cloud/";
-        _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '3']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.async=true; g.src='//cdn.matomo.cloud/embedthis.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-      })();
-})
+    document.addEventListener('DOMContentLoaded', function () {
+        var _paq = (window._paq = window._paq || [])
+        _paq.push(['trackPageView'])
+        _paq.push(['enableLinkTracking'])
+        ;(function () {
+            var u = 'https://embedthis.matomo.cloud/'
+            _paq.push(['setTrackerUrl', u + 'matomo.php'])
+            _paq.push(['setSiteId', '3'])
+            var d = document,
+                g = d.createElement('script'),
+                s = d.getElementsByTagName('script')[0]
+            g.async = true
+            g.src = '//cdn.matomo.cloud/embedthis.matomo.cloud/matomo.js'
+            s.parentNode.insertBefore(g, s)
+        })()
+    })
 </script>
 
 <script async>
-  (function () {
-    var g = document.createElement("script"), s = document.getElementsByTagName("script")[0];
-    g.async = true;
-    g.src = "https://api.admin.embedthis.com/api/metrics/visit?site=onetable-doc";
-  s.parentNode.insertBefore(g, s);
-})();
+    ;(function () {
+        var g = document.createElement('script'),
+            s = document.getElementsByTagName('script')[0]
+        g.async = true
+        g.src = 'https://api.admin.embedthis.com/api/metrics/visit?site=onetable-doc'
+        s.parentNode.insertBefore(g, s)
+    })()
+</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
