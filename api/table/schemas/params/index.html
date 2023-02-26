@@ -107,6 +107,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#timestamps" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1395,6 +1400,23 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Params
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1410,6 +1432,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#timestamps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timestamps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2641,6 +2691,25 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#timestamps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timestamps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2655,6 +2724,8 @@
                   
 
 
+
+  <h1>Params</h1>
 
 <p>The <code>schema.params</code> is a hash map of properties that control how data is stored. It may contain the following properties:</p>
 <table>
@@ -2689,7 +2760,7 @@
 <tr>
 <td>timestamps</td>
 <td align="center"><code>boolean | string</code></td>
-<td>Make "created" and "updated" timestamps in items. Set to true to create both. Set to 'create' for only "created" timestamp and set to "update" for only an "updated" timestamp. See also: "updatedField" and "createdField" properties. Default false.</td>
+<td>Make "created" and "updated" timestamps in items. Set to true to create both. Set to 'create' for only "created" timestamp and set to "update" for only an "updated" timestamp. See below for more details. Also see: "updatedField" and "createdField" properties. Default false.</td>
 </tr>
 <tr>
 <td>typeField</td>
@@ -2715,6 +2786,15 @@
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">        </span><span class="nx">timestamps</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="timestamps">Timestamps</h2>
+<p>Created and updated timestamps can be automatically added to items. If the schema timestamps param is set to true, a <code>created</code> and <code>updated</code> date timestamp will be added to items during <strong>create</strong> or <strong>update</strong> API calls. </p>
+<p>If using TypeScript, you should define the created and updated fields in your data model so that the returned items match your TypeScript definitions. If using JavaScript, it is optional if you wish to define them in your model.</p>
+<p>The name of the <code>created</code> and <code>updated</code> fields can be modified via the schema param <code>createdField</code> and <code>updatedField</code>.</p>
+<p>If you need to manually modify a created or updated timestamp, you can disable automatic timestamps by setting the API <code>timestamps</code> param to false. For example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nx">props</span><span class="p">.</span><span class="nx">updated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="s1">&#39;2023-02-26T23:23:14.752Z&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">await</span><span class="w"> </span><span class="nx">User</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">props</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">timestamps</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">})</span>
 </code></pre></div></td></tr></table></div>
 
 
