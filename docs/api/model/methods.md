@@ -93,7 +93,7 @@ The `find` method returns an array of items after applying any schema mappings. 
 
 ### Pagination
 
-The `find` method will automatically invoke DynamoDB query to fetch additional items and aggregate the result up to the limit specified by `params.limit`. If the limit is exceeded, the last key fetched is set in the 'result.next' property of the returned array of items. You can provide this as `params.next` to a subsequent API call to continue the query with the next page of results.
+The `find` method will automatically invoke DynamoDB query to fetch additional items and aggregate the result up to the limit specified by `params.limit`. If the limit is exceeded, the last key fetched is set in the **result.next** property of the returned array of items. You can provide this as `params.next` to a subsequent API call to continue the query with the next page of results.
 
 
 ```typescript
