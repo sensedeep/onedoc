@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="OneTable Documentation">
+      
       
       
       
@@ -55,25 +57,7 @@
 
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var _paq = (window._paq = window._paq || [])
-        _paq.push(['trackPageView'])
-        _paq.push(['enableLinkTracking'])
-        ;(function () {
-            var u = 'https://embedthis.matomo.cloud/'
-            _paq.push(['setTrackerUrl', u + 'matomo.php'])
-            _paq.push(['setSiteId', '3'])
-            var d = document,
-                g = d.createElement('script'),
-                s = d.getElementsByTagName('script')[0]
-            g.async = true
-            g.src = '//cdn.matomo.cloud/embedthis.matomo.cloud/matomo.js'
-            s.parentNode.insertBefore(g, s)
-        })()
-    })
-</script>
-
-<script>
+    <!--
     ;(function () {
         var g = document.createElement('script'),
             s = document.getElementsByTagName('script')[0]
@@ -81,6 +65,10 @@
         g.src = 'https://api.admin.embedthis.com/api/metrics/visit?site=onetable-doc'
         s.parentNode.insertBefore(g, s)
     })()
+    -->
+    window.onload = function () {
+        navigator.sendBeacon('https://api.admin.embedthis.com/api/metrics/visit?site=onetable-doc', null)
+    }
 </script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
@@ -89,6 +77,21 @@
     
     
      
+<meta property="og:title" content="Quick Tour - SenseDeep DynamoDB OneTable" />
+
+<meta property="og:description" content="OneTable Documentation" />
+<meta property="og:image" content="/images/mars.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@embedthat" />
+<meta name="twitter:creator" content="@embedthat" />
+
+<meta property="twitter:title" content="Quick Tour - SenseDeep DynamoDB OneTable" />
+
+<meta name="twitter:description" content="OneTable Documentation" />
+<meta name="twitter:image" content="/images/mars.jpg" />
+
+
   </head>
   
   
@@ -3087,7 +3090,7 @@
 <p>To interact with DynamoDB, get a model for the application entity.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">getModel</span><span class="p">(</span><span class="s1">&#39;Account&#39;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>If using TypeScript, see the special tour <a href="./typescript/">TypeScript Tour</a></p>
+<p>If using TypeScript, see <a href="../typescript/">TypeScript Tour</a>.</p>
 <h2 id="create-an-item">Create an Item</h2>
 <p>To create
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
