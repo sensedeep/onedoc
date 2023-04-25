@@ -110,7 +110,7 @@ To interact with DynamoDB, get a model for the application entity.
 const model = table.getModel('Account')
 ```
 
-If using TypeScript, see the special tour [TypeScript Tour](./typescript/)
+If using TypeScript, see [TypeScript Tour](../typescript/).
 
 ## Create an Item
 
