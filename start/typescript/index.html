@@ -699,6 +699,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#type-enforcement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type Enforcement
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2705,6 +2716,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#type-enforcement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type Enforcement
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2750,16 +2772,16 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>When defining your OneTable schema for Typescript, you must use type objects (String, Date, Number etc) as the value for your <code>type</code> properties. When using Javascript, you can also use string values ('string', 'date', 'number'), but for Typescript, this will prevent the Typescript dynamic typing from working.</p>
-<p>You also need to append the <code>as const</code> to the end of your models in the schema.</p>
+<p>You also need to append the <code>as const</code> to the end of your "models" in the schema.</p>
 <h2 id="typed-application-models">Typed Application Models</h2>
 <p>Using the <code>Entity</code> generic type, you can create types for your schema models.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kr">type</span><span class="w"> </span><span class="nx">AccountType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Entity</span><span class="o">&lt;</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">MySchema</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Account</span><span class="o">&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kr">type</span><span class="w"> </span><span class="nx">Account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Entity</span><span class="o">&lt;</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">MySchema</span><span class="p">.</span><span class="nx">models</span><span class="p">.</span><span class="nx">Account</span><span class="o">&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>With these types, you can declare typed variables.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">account</span><span class="o">:</span><span class="w"> </span><span class="kt">AccountType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">account</span><span class="o">:</span><span class="w"> </span><span class="kt">Account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Coyote&#39;</span><span class="p">,</span><span class="w">        </span><span class="c1">//  OK</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="nx">unknown</span><span class="o">:</span><span class="w"> </span><span class="kt">42</span><span class="p">,</span><span class="w">           </span><span class="c1">//  Error</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">}</span>
@@ -2775,9 +2797,9 @@
 <span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-3-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1">//  Get an Account access model</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">Account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">getModel</span><span class="o">&lt;</span><span class="nx">AccountType</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">&#39;Account&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kd">let</span><span class="w"> </span><span class="nx">AccountModel</span><span class="o">:</span><span class="w"> </span><span class="kt">Model</span><span class="o">&lt;</span><span class="nx">Account</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">getModel</span><span class="o">&lt;</span><span class="nx">Account</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">&#39;Account&#39;</span><span class="p">)</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="kd">let</span><span class="w"> </span><span class="nx">account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Account</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="kd">let</span><span class="w"> </span><span class="nx">account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">AccountModel</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Acme&#39;</span><span class="p">,</span><span class="w">               </span><span class="c1">//  OK</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="nx">unknown</span><span class="o">:</span><span class="w"> </span><span class="kt">42</span><span class="p">,</span><span class="w">                </span><span class="c1">//  Error</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="p">})</span>
@@ -2785,6 +2807,11 @@
 <a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="nx">account</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Coyote&#39;</span><span class="w">         </span><span class="c1">//  OK</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="nx">account</span><span class="p">.</span><span class="nx">unknown</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">42</span><span class="w">            </span><span class="c1">//  Error</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="type-enforcement">Type Enforcement</h2>
+<p>Attributes that are defined in the schema with the "required" property will be mandatory in your Entity types. Those without the "required" property will be optional.</p>
+<p>The Model.create() API can take a subset of the defined properties, provided that all required properties are present. TypeScript will enforce this.</p>
+<p>The Model.update() API can take a subset of the defined properties. Required properties are not required for update unless they are part of the PK/SK value templates.</p>
+<p>The Model.find() and Model.remove() API can take a subset of defined properties.</p>
 
 
 
