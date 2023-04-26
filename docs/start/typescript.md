@@ -21,21 +21,20 @@ const MySchema = {
 
 When defining your OneTable schema for Typescript, you must use type objects (String, Date, Number etc) as the value for your `type` properties. When using Javascript, you can also use string values ('string', 'date', 'number'), but for Typescript, this will prevent the Typescript dynamic typing from working.
 
-You also need to append the `as const` to the end of your models in the schema.
+You also need to append the `as const` to the end of your "models" in the schema.
 
 ## Typed Application Models
 
 Using the `Entity` generic type, you can create types for your schema models.
 
 ```typescript
-type AccountType = Entity<typeof MySchema.models.Account>
-
+type Account = Entity<typeof MySchema.models.Account>
 ```
 
 With these types, you can declare typed variables.
 
 ```typescript
-let account: AccountType = {
+let account: Account = {
     name: 'Coyote',        //  OK
     unknown: 42,           //  Error
 }
@@ -45,9 +44,9 @@ Similarly you can use a typed version of `getModel` to retrieve a typed Model to
 
 ```typescript
 //  Get an Account access model
-let Account = table.getModel<AccountType>('Account')
+let AccountModel: Model<Account> = table.getModel<Account>('Account')
 
-let account = await Account.create({
+let account = await AccountModel.create({
     name: 'Acme',               //  OK
     unknown: 42,                //  Error
 })
@@ -55,3 +54,13 @@ let account = await Account.create({
 account.name = 'Coyote'         //  OK
 account.unknown = 42            //  Error
 ```
+
+## Type Enforcement
+
+Attributes that are defined in the schema with the "required" property will be mandatory in your Entity types. Those without the "required" property will be optional.
+
+The Model.create() API can take a subset of the defined properties, provided that all required properties are present. TypeScript will enforce this.
+
+The Model.update() API can take a subset of the defined properties. Required properties are not required for update unless they are part of the PK/SK value templates.
+
+The Model.find() and Model.remove() API can take a subset of defined properties.
