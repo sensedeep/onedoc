@@ -12,13 +12,15 @@ The `schema.models` property contains one or more models with attribute field de
         pk:     { type: String, value: '${_type}:${name}' },
         sk:     { type: String, value: '${_type}:' },
         name:   { type: String, required: true },
-        address: {
-            type: Object, schema: {
-                street: { type: String },
-                city: { type: String },
-                zip: { type: String },
-            },
-        },
+        addresses: {
+            type: Array, default: [], items: {
+                type: Object, default: {}, schema: {
+                    street: { type: String },
+                    city: { type: String },
+                    zip: { type: String },
+                }
+            }
+        }
     }
 }
 ```
@@ -36,3 +38,5 @@ For Sets, you should set the schema type to Set and supply values as instances o
 OneTable will automatically add a `_type` attribute to each model that is set to the name of the model. However, you can explicitly define your type attribute in your model schema if you wish.
 
 The type field can be used in PK/SK value templates by using `${_type}`. You can change the name of the type field from `_type` by setting the `params.typeField` in the Table constructor.
+
+You can define nested arrays and objects using the `items` and `schema` properties.

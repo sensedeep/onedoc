@@ -134,11 +134,25 @@ For object attributes, you can define a nested schema for the object properties,
 A nested schema uses the `schema` property to define a nested map of attributes.
 
 ```javascript
-        address: {
-            type: Object, schema: {
+    address: {
+        type: Object, schema: {
+            street: { type: String },
+            city: { type: String },
+            zip: { type: String },
+        }
+    }
+```
+
+To model an array, use the `items` property to model the array items. Using a default value for the array and items can be useful to avoid having to test for existance.
+
+```javascript
+    addresses: {
+        type: Array, default: [], items: {
+            type: Object, default: {}, schema: {
                 street: { type: String },
                 city: { type: String },
                 zip: { type: String },
-            },
-        },
+            }
+        }
+    }
 ```
