@@ -90,7 +90,11 @@ const schema = {
 }
 ```
 
-Partial can also be defined in a schema field definition and in the API params. The API params value of partial will override, the per-field definition which will override the table `partial` value.
+Partial can also be defined in a schema field definition and in the API params. 
+
+Partial updates of arrays are not (yet) supported. You should specify `partial: false` in any schema array property if you are using partial updates in general.
+
+The API params value of partial will override, the per-field definition which will override the table `partial` value.
 
 ## AWS DynamoDB Accelerator (DAX)
 
