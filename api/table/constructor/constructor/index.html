@@ -2925,7 +2925,9 @@
 <a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>Partial can also be defined in a schema field definition and in the API params. The API params value of partial will override, the per-field definition which will override the table <code>partial</code> value.</p>
+<p>Partial can also be defined in a schema field definition and in the API params. </p>
+<p>Partial updates of arrays are not (yet) supported. You should specify <code>partial: false</code> in any schema array property if you are using partial updates in general.</p>
+<p>The API params value of partial will override, the per-field definition which will override the table <code>partial</code> value.</p>
 <h2 id="aws-dynamodb-accelerator-dax">AWS DynamoDB Accelerator (DAX)</h2>
 <p>The Amazon DynamoDB Accelerator is a fully managed, highly available, in-memory cache for DynamoDB. OneTable supports DAX.</p>
 <p>Currently, the AWS SDK V3 does not support DAX via by the DynamoDBClient package so you must use the AWS SDK V2.</p>
