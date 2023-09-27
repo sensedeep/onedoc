@@ -111,7 +111,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cloudwatch-emf" class="md-skip">
+        <a href="#metric-details" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
             
 <a href="https://www.npmjs.com/package/dynamodb-onetable">
     <span>
-        <b>New release 2.6.4</b>
+        <b>New release 2.7.1</b>
         on NPM,
     </span>
 </a>
@@ -1230,10 +1230,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cloudwatch-emf" class="md-nav__link">
+  <a href="#metric-details" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CloudWatch EMF
+        Metric Details
       
     </span>
   </a>
@@ -1274,10 +1274,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#metrics-under-the-hood" class="md-nav__link">
+  <a href="#performance-and-cost" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Metrics Under the Hood
+        Performance and Cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-emf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch EMF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read More
       
     </span>
   </a>
@@ -2745,10 +2789,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cloudwatch-emf" class="md-nav__link">
+  <a href="#metric-details" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CloudWatch EMF
+        Metric Details
       
     </span>
   </a>
@@ -2789,10 +2833,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#metrics-under-the-hood" class="md-nav__link">
+  <a href="#performance-and-cost" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Metrics Under the Hood
+        Performance and Cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Metrics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch-emf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudWatch EMF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read More
       
     </span>
   </a>
@@ -2818,19 +2906,82 @@
 
   <h1>Metrics</h1>
 
-<p>OneTable can emit detailed CloudWatch custom metrics to track DynamoDB performance and usage on a per app/function, index, entity model and operation basis.  </p>
+<p>OneTable can emit detailed custom metrics to track DynamoDB performance and usage on a per app/function, index, entity model and operation basis.  </p>
+<p>These metrics can be emitted using Cloud Watch metrics or <a href="https://www.npmjs.com/package/custom-metrics">CustomMetrics</a></p>
 <p><a href="https://www.sensedeep.com">SenseDeep</a> can present and analyze these metrics to gain insights and visualizations into how your single-table designs are performing.</p>
-<h2 id="cloudwatch-emf">CloudWatch EMF</h2>
-<p>The metrics are emitted using the CloudWatch EMF format with dimensions for: Table, Source, Index, Model and Operation.</p>
-<p>The following metrics are emitted for each dimension combination:</p>
-<ul>
-<li>read — Read capacity units consumed</li>
-<li>write — Write capacity units consumed</li>
-<li>latency — Aggregated request latency in milliseconds</li>
-<li>count — Count of items returned</li>
-<li>scanned — Number of items scanned</li>
-<li>requests — Number of API requests issued</li>
-</ul>
+<h2 id="metric-details">Metric Details</h2>
+<p>The following metrics are emitted:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>read</td>
+<td>Read capacity units consumed</td>
+</tr>
+<tr>
+<td>write</td>
+<td>Write capacity units consumed</td>
+</tr>
+<tr>
+<td>latency</td>
+<td>Aggregated request latency in milliseconds</td>
+</tr>
+<tr>
+<td>count</td>
+<td>Count of items returned</td>
+</tr>
+<tr>
+<td>scanned</td>
+<td>Number of items scanned</td>
+</tr>
+<tr>
+<td>requests</td>
+<td>Number of API requests issued</td>
+</tr>
+</tbody>
+</table>
+<p>Each of these metric can be emitted for the following dimensions:</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Table</td>
+<td></td>
+</tr>
+<tr>
+<td>Tentant</td>
+<td>Customer or user responsible for the database access</td>
+</tr>
+<tr>
+<td>Index</td>
+<td>Primary or secondary index</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>Application, service or function responsible for the access</td>
+</tr>
+<tr>
+<td>Model</td>
+<td>Single table model</td>
+</tr>
+<tr>
+<td>Operation</td>
+<td>DynamoDB operation</td>
+</tr>
+</tbody>
+</table>
+<p>The default dimension are Table, Index, Source and Model. </p>
+<p>The dimensions are emitted for progressive combinations. i.e. Table, Table+Tenant, Table+Tenant+Index, etc. This means you can see detailed metrics at multiple levels. You can see overall metrics for the table, or a table and index, or for the table, index and application. </p>
 <h2 id="metrics-params">Metrics Params</h2>
 <p>The properties of Table constructor <code>params.metrics</code> property are:</p>
 <table>
@@ -2845,12 +2996,12 @@
 <tr>
 <td>chan</td>
 <td align="center"><code>string</code></td>
-<td>Log channel to use to emit metrics. Defaults to 'metrics'.</td>
+<td>Log channel to use to emit metrics if using SenseLogs. Defaults to 'dbmetrics'.</td>
 </tr>
 <tr>
 <td>dimensions</td>
 <td align="center"><code>array</code></td>
-<td>Ordered array of dimensions to emit. Defaults to [Table, Tenant, Source, Index, Model, Operation].</td>
+<td>Ordered array of dimensions to emit. Defaults to [Table, Index, Source] and includes Tenant if the <code>tenant</code> property is set to true. This can be modified at runtime via the LOG_ONETABLE_DIMENSIONS Lambda environment variable.</td>
 </tr>
 <tr>
 <td>enable</td>
@@ -2870,7 +3021,7 @@
 <tr>
 <td>namespace</td>
 <td align="center"><code>string</code></td>
-<td>CloudWatch metrics namespace for the metrics. Defaults to <code>SingleTable/metrics</code>.</td>
+<td>CloudWatch metrics namespace for the metrics. Defaults to <code>SingleTable/metrics.1</code>.</td>
 </tr>
 <tr>
 <td>period</td>
@@ -2880,12 +3031,7 @@
 <tr>
 <td>properties</td>
 <td align="center"><code>map|function</code></td>
-<td>Set to a map of additional properties to be included in EMF log record. These are not metrics. Set to a function that will be invoked as <code>properties(operation, params, result)</code> and should return a map of properties. Defaults to null.</td>
-</tr>
-<tr>
-<td>queries</td>
-<td align="center"><code>boolean</code></td>
-<td>Set to true to enable per-query profile metrics. Defaults to true.</td>
+<td>Set to a map of additional properties to be included in a CloudWatch EMF log record. These are not metrics. Set to a function that will be invoked as <code>properties(operation, params, result)</code> and should return a map of properties. Defaults to null.</td>
 </tr>
 <tr>
 <td>source</td>
@@ -2907,18 +3053,38 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nx">metrics</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">source</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;acme:launcher&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">})</span>
 </code></pre></div></td></tr></table></div>
+<p>You can also use the LOG_OVERRIDE environment variable. This operates like LOG_FILTER but for a specified duration of time. The format of LOG_OVERRIDE is:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>expire: filter
+</code></pre></div></td></tr></table></div>
+<p>Where <code>expire</code> is a Unix time in msec since Jan 1, 1970 (Date.now()) and filter is a LOG_FILTER string containing <code>dbmetrics</code>.</p>
+<p>The metric dimensions can be controlled by the LOG_ONETABLE_DIMENSIONS environment variable. Set to an ordered, comma separated list of dimensions. The dimensions will be progressively combined. i.e. A dimensions list of [Table, Index, Source] will result in the dimensions [{Table}, {Table+Index}, {Table+Index+Source}]. </p>
 <h2 id="profiled-queries">Profiled Queries</h2>
-<p>You can also generate metrics for specially profiled queries and scans via the <code>params.profile</code> tag. The profile param takes a unique string tag and metrics will be created for the dimensions [Profile, profile-tag-name]. These metrics exist outside the standard dimensions specified via the Metrics <code>dimensions</code> parameter.</p>
+<p>You can also generate metrics for specially profiled queries and scans via the <code>params.profile</code> tag. The profile param takes a unique string tag and metrics will be created for the dimension {Profile: profile-tag-name}. These metrics exist outside the standard dimensions specified via the Metrics <code>dimensions</code> parameter.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">({},</span><span class="w"> </span><span class="p">{</span><span class="nx">profile</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;find-all-users&#39;</span><span class="p">})</span>
 </code></pre></div></td></tr></table></div>
-<p>Read more about how to use and configure metrics at <a href="https://www.sensedeep.com/blog/posts/stories/single-table-dynamodb-monitoring.html">Understanding Your DynamoDB Performance</a>.</p>
-<p>The metrics can be viewed in CloudWatch or best via the free <a href="https://www.sensedeep.com">SenseDeep Developer</a> plan which has detailed graphs for your single-table monitoring for DynamoDB.</p>
-<p><img alt="Single Table Monitoring" src="https://www.sensedeep.com/images/sensedeep/table-single.png" />.</p>
-<h2 id="metrics-under-the-hood">Metrics Under the Hood</h2>
-<p>The metric are emitted using <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html">CloudWatch EMF</a> via the <code>metrics</code> method. This permits zero-latency creation of metrics without impacting the performance of your Lambdas.</p>
-<p>Metrics will only be emitted for dimension combinations that are active. If you have many application entities and indexes, you may end up with a large number of metrics. If your site uses all these dimensions actively, your CloudWatch Metric costs may be high. You will be charged by AWS CloudWatch for the total number of metrics that are active each hour at the rate of $0.30 cents per hour.</p>
+<h2 id="performance-and-cost">Performance and Cost</h2>
+<p>Single table metrics are very granular and the combination of metric dimensions can get large. This can impose a significant load on your applications and database (if using CustomMetrics) or CloudWatch Metrics if using EMF. </p>
+<p>To minimize the cost, only use the metric dimensions you really require. Also, use the dynamic log control environment variables LOG_FILTER and LOG_ONETABLE_DIMENSIONS to enable and disable OneTable metrics for short durations. SenseDeep makes this easy, by supporting override log environment variables that automatically</p>
+<p>The other way to minimize the performance impact is to use a larger <code>period</code> and <code>max</code> property in your Table <code>params.metrics</code> constructor property.</p>
+<h2 id="background">Background</h2>
+<p>OneTable Metrics are emitted using either CloudWatch EMF or <a href="https://www.npmjs.com/package/custom-metrics">CustomMetrics</a>. </p>
+<p>AWS CloudWatch offers metrics to monitor specific aspects of your apps that are not covered by the default AWS infrastructure metrics. </p>
+<p>Unfortunately, the AWS "custom" metrics can be very expensive. If updated or queried regularly. Each each custom metric will cost up to $5 per metric per year with additional costs for querying. If you have many metrics or high dimensionality on your metrics, this can lead to a very large CloudWatch Metrics bill.</p>
+<h2 id="custom-metrics">Custom Metrics</h2>
+<blockquote>
+<p><strong>CustomMetrics</strong> provides cost effective metrics that are up to 1000 times cheaper and 10 times faster than standard CloudWatch metrics.</p>
+</blockquote>
+<p>CustomMetrics achieves these savings by supporting only "latest" period metrics. i.e. last day, last month, last hour etc. This enables each metric to be saved, stored and queried with minimal cost.</p>
+<p>CustomMetrics stores metric data in your DynamoDB database table using a unique key so that it can co-exist with your application data. Metric data is buffered and aggregated so the impact on your DynamoDB utilization should be minimal.</p>
+<p>CustomMetrics are emitted using a primary key of <code>metric#1#owner</code>. MOB -- config option</p>
+<h2 id="cloudwatch-emf">CloudWatch EMF</h2>
+<p>Metric emitted using <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.html">CloudWatch EMF</a> permit zero-latency creation of metrics without impacting the performance of your Lambdas.</p>
 <p>If your CloudWatch costs are too high, you can minimize your charges by reducing the number of dimensions via the <code>dimensions</code> property. You could consider disabling the <code>source</code> or <code>operation</code> dimensions. Alternatively, you should consider <a href="https://www.npmjs.com/package/senselogs">SenseLogs</a> which integrates with OneTable and can dynamically control your metrics to enable and disable metrics dynamically.</p>
 <p>DynamoDB Metrics are buffered and aggregated to minimize the load on your system. If a Lambda function is reclaimed by AWS Lambda, there may be a few metric requests that are not emitted before the function is reclaimed. This should be a very small percentage and should not significantly impact the quality of the metrics. You can control this buffering via the <code>max</code> and <code>period</code> parameters.</p>
+<h2 id="read-more">Read More</h2>
+<p>Read more about how to use and configure metrics at <a href="https://www.sensedeep.com/blog/posts/stories/single-table-dynamodb-monitoring.html">Understanding Your DynamoDB Performance</a>.</p>
+<p>The metrics can be viewed in CloudWatch or best via <a href="https://www.sensedeep.com">SenseDeep</a> which has detailed graphs for your single-table monitoring for DynamoDB.</p>
+<p><img alt="Single Table Monitoring" src="https://www.sensedeep.com/images/sensedeep/table-single.png" />.</p>
 
 
 
