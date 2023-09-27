@@ -1,6 +1,6 @@
 {
     "name": "onedoc",
-    "version": "2.6.2",
+    "version": "2.7.1",
     "description": "Documentation for OneTable",
     "keywords": [
         "dynamodb",
