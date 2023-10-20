@@ -42,6 +42,7 @@ nav:
                 - Overview: api/model/overview.md
                 - API Parameters: api/model/params.md
                 - Methods: api/model/methods.md
+                - Set Expressions: api/model/set.md
                 - Where Clauses: api/model/where.md
                 - Examples: api/model/examples.md
           - Dynamo Class:
