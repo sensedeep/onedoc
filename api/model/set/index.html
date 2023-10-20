@@ -11,28 +11,28 @@
       
       
       
-        <link rel="prev" href="../crypto/">
+        <link rel="prev" href="../methods/">
       
       
-        <link rel="next" href="../metrics/">
+        <link rel="next" href="../where/">
       
       
         
       
       
-      <link rel="icon" href="../../../../images/favicon.ico">
+      <link rel="icon" href="../../../images/favicon.ico">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11+insiders-4.30.0">
     
     
       
-        <title>Logging - SenseDeep DynamoDB OneTable</title>
+        <title>Set Expressions - SenseDeep DynamoDB OneTable</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.b6d2c4d8.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.b6d2c4d8.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
       
       
 
@@ -48,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../css/all.css">
+      <link rel="stylesheet" href="../../../css/all.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -68,7 +68,7 @@
     
     
      
-<meta property="og:title" content="Logging - SenseDeep DynamoDB OneTable" />
+<meta property="og:title" content="Set Expressions - SenseDeep DynamoDB OneTable" />
 
 <meta property="og:description" content="OneTable Documentation" />
 <meta property="og:image" content="/images/mars.jpg" />
@@ -77,7 +77,7 @@
 <meta name="twitter:site" content="@embedthat" />
 <meta name="twitter:creator" content="@embedthat" />
 
-<meta property="twitter:title" content="Logging - SenseDeep DynamoDB OneTable" />
+<meta property="twitter:title" content="Set Expressions - SenseDeep DynamoDB OneTable" />
 
 <meta name="twitter:description" content="OneTable Documentation" />
 <meta name="twitter:image" content="/images/mars.jpg" />
@@ -102,7 +102,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#senselogs" class="md-skip">
+        <a href="#set-expressions" class="md-skip">
           Skip to content
         </a>
       
@@ -139,7 +139,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="SenseDeep DynamoDB OneTable" class="md-header__button md-logo" aria-label="SenseDeep DynamoDB OneTable" data-md-component="logo">
+    <a href="../../.." title="SenseDeep DynamoDB OneTable" class="md-header__button md-logo" aria-label="SenseDeep DynamoDB OneTable" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -158,7 +158,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Logging
+              Set Expressions
             
           </span>
         </div>
@@ -261,7 +261,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -280,7 +280,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../start/quick-tour/" class="md-tabs__link">
+        <a href="../../../start/quick-tour/" class="md-tabs__link">
           
   
   Getting Started
@@ -308,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../overview/" class="md-tabs__link md-tabs__link--active">
+        <a href="../../table/overview/" class="md-tabs__link md-tabs__link--active">
           
   
   API
@@ -329,7 +329,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../guides/overview/" class="md-tabs__link">
+        <a href="../../../guides/overview/" class="md-tabs__link">
           
   
   Guides
@@ -345,7 +345,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../extensions/" class="md-tabs__link">
+      <a href="../../../extensions/" class="md-tabs__link">
         
   
   Extensions
@@ -362,7 +362,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../services/consulting/" class="md-tabs__link">
+        <a href="../../../services/consulting/" class="md-tabs__link">
           
   
   Services
@@ -410,7 +410,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="SenseDeep DynamoDB OneTable" class="md-nav__button md-logo" aria-label="SenseDeep DynamoDB OneTable" data-md-component="logo">
+    <a href="../../.." title="SenseDeep DynamoDB OneTable" class="md-nav__button md-logo" aria-label="SenseDeep DynamoDB OneTable" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -439,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -522,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start/quick-tour/" class="md-nav__link">
+      <a href="../../../start/quick-tour/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -548,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start/install/" class="md-nav__link">
+      <a href="../../../start/install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -574,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start/configure/" class="md-nav__link">
+      <a href="../../../start/configure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -600,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start/modeling/" class="md-nav__link">
+      <a href="../../../start/modeling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -626,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start/typescript/" class="md-nav__link">
+      <a href="../../../start/typescript/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -712,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start/why-onetable/" class="md-nav__link">
+      <a href="../../../start/why-onetable/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -738,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start/features/" class="md-nav__link">
+      <a href="../../../start/features/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -764,7 +764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start/samples/" class="md-nav__link">
+      <a href="../../../start/samples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -790,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start/contribute/" class="md-nav__link">
+      <a href="../../../start/contribute/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -816,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start/references/" class="md-nav__link">
+      <a href="../../../start/references/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -842,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../start/contact/" class="md-nav__link">
+      <a href="../../../start/contact/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -937,8 +937,6 @@
                 
   
   
-    
-  
   
     
     
@@ -959,13 +957,13 @@
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
         
           <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
             
@@ -984,7 +982,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1001,7 +999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../overview/" class="md-nav__link">
+      <a href="../../table/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1025,8 +1023,6 @@
                 
   
   
-    
-  
   
     
     
@@ -1047,13 +1043,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
         
           <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
             
@@ -1072,7 +1068,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_1_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1089,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../constructor/" class="md-nav__link">
+      <a href="../../table/constructor/constructor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1115,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../crypto/" class="md-nav__link">
+      <a href="../../table/constructor/crypto/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1139,33 +1135,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    
-  
-    Logging
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../table/constructor/logging/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1180,35 +1152,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#senselogs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SenseLogs
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1220,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../metrics/" class="md-nav__link">
+      <a href="../../table/constructor/metrics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1246,7 +1189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transforms/" class="md-nav__link">
+      <a href="../../table/constructor/transforms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1272,7 +1215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../templates/" class="md-nav__link">
+      <a href="../../table/constructor/templates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1298,7 +1241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../validations/" class="md-nav__link">
+      <a href="../../table/constructor/validations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1388,7 +1331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../schemas/modeling/" class="md-nav__link">
+      <a href="../../table/schemas/modeling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1414,7 +1357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../schemas/indexes/" class="md-nav__link">
+      <a href="../../table/schemas/indexes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1440,7 +1383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../schemas/params/" class="md-nav__link">
+      <a href="../../table/schemas/params/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1466,7 +1409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../schemas/models/" class="md-nav__link">
+      <a href="../../table/schemas/models/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1492,7 +1435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../schemas/attributes/" class="md-nav__link">
+      <a href="../../table/schemas/attributes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1526,7 +1469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contexts/" class="md-nav__link">
+      <a href="../../table/contexts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1552,7 +1495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../methods/" class="md-nav__link">
+      <a href="../../table/methods/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1578,7 +1521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/" class="md-nav__link">
+      <a href="../../table/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1610,6 +1553,8 @@
                 
   
   
+    
+  
   
     
     
@@ -1630,13 +1575,13 @@
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
             
@@ -1655,7 +1600,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1672,7 +1617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../model/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1698,7 +1643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../model/params/" class="md-nav__link">
+      <a href="../params/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1724,7 +1669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../model/methods/" class="md-nav__link">
+      <a href="../methods/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1748,9 +1693,18 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../model/set/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1765,6 +1719,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1776,7 +1731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../model/where/" class="md-nav__link">
+      <a href="../where/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1802,7 +1757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../model/examples/" class="md-nav__link">
+      <a href="../examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1886,7 +1841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../dynamo/overview/" class="md-nav__link">
+      <a href="../../dynamo/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1920,7 +1875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../errors/" class="md-nav__link">
+      <a href="../../errors/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2005,7 +1960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../guides/overview/" class="md-nav__link">
+      <a href="../../../guides/overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2570,7 +2525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../extensions/" class="md-nav__link">
+      <a href="../../../extensions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2643,7 +2598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../services/consulting/" class="md-nav__link">
+      <a href="../../../services/consulting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2712,25 +2667,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#senselogs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SenseLogs
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -2747,47 +2685,76 @@
 
 
 
-  <h1>Logging</h1>
-
-<p>OneTable can log complete request parameters and responses to assist you in debugging and understanding how your API requests are being translated to DynamoDB.</p>
-<p>You can set the Table constructor <code>logger</code> property to <code>true</code> for simple logging to the console.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Table</span><span class="p">({</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="p">...</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nx">logger</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">})</span>
+<h1 id="set-expressions">Set Expressions</h1>
+<p>OneTable <code>set</code> expressions are a powerful way to express DynamoDB update expressions. DynamoDB ExpressionAttributeNames and Values are one of the least fun parts of DynamoDB. OneTable makes this much easier via the use of templated <code>set</code> clauses to express complex update expressions.</p>
+<p>A <code>set</code> clause may be used with the <code>update</code> API to specify an Update expression. OneTable will parse the <code>set</code> clause and extract the names and values to use with the DynamoDB API.</p>
+<p>For example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;0.0.1&#39;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nx">indexes</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">        </span><span class="nx">primary</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">hash</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;pk&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">sort</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sk&#39;</span><span class="p">},</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="nx">models</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">        </span><span class="nx">User</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">            </span><span class="nx">pk</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;${_type}#&#39;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">            </span><span class="nx">sk</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;${_type}#${email}&#39;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">            </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">            </span><span class="nx">addresses</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="nb">Array</span><span class="p">,</span><span class="w"> </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="kd">const</span><span class="p">,</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="c1">//  Create a user without an address</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="kd">let</span><span class="w"> </span><span class="nx">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">User</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;user@example.com&#39;</span><span class="p">}</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="c1">//  Set the first address</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="kd">let</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">User</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;user@example.com&#39;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="nx">set</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s1">&#39;address[0]&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1212 Cherry Tree Lane&#39;</span><span class="p">},</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="p">})</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="c1">//  Append further addresses</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">User</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="nx">set</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">addresses</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;list_append(addresses, @{newAddress})&#39;</span><span class="p">},</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="nx">substitutions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">        </span><span class="nx">newAddress</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;25 Mayfair cresent&#39;</span><span class="p">]</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="p">})</span>
 </code></pre></div></td></tr></table></div>
-<p>Alternatively, the <code>logger</code> may be set to logging callback that will be invoked as required to log data. The logger function has the signature:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">5</a></span>
-<span class="normal"><a href="#__codelineno-1-6">6</a></span>
-<span class="normal"><a href="#__codelineno-1-7">7</a></span>
-<span class="normal"><a href="#__codelineno-1-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Table</span><span class="p">({</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="p">...</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nx">logger</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">level</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">level</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;trace&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">level</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;data&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toLocaleString</span><span class="p">()</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">level</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<p>Where <code>level</code> is set to <code>info</code>, <code>error</code>, <code>warn</code>, <code>exception</code>, <code>trace</code> or <code>data</code>. The <code>trace</code> level is for verbose debugging messages. The <code>data</code> level logs user data retrieved find and get API calls.</p>
-<p>The <code>message</code> is a simple String containing a descriptive message. The <code>context</code> is a hash of contextual properties regarding the request, response or error.</p>
-<p>If you use {log: true} in the various OneTable Model API options, the more verbose <code>trace</code> and <code>data</code> levels will be changed to <code>info</code> for that call before passing to the logging callback. In this way you can emit <code>trace</code> and <code>data</code> output on a per API basis.</p>
-<h4 id="senselogs">SenseLogs</h4>
-<p>OneTable also integrates with <a href="https://www.npmjs.com/package/senselogs">SenseLogs</a> which is a fast dynamic logger designed for serverless.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">SenseLogs</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;senselogs&#39;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">senselogs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">SenseLogs</span><span class="p">()</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Table</span><span class="p">({</span><span class="nx">senselogs</span><span class="p">})</span>
-</code></pre></div></td></tr></table></div>
-<p>This will log request details in JSON. Use <code>SenseLogs({destination: 'console'})</code> for plain text logging to the console.</p>
+<p>OneTable will extract property names defined inside <code>${}</code> braces, variable substitutions in <code>@{}</code> braces and values inside <code>{}</code> braces and will automatically define your update expression and the required ExpressionAttributeNames and ExpressionAttributeValues.</p>
+<p>If a value inside <code>{}</code> is a number, it will be typed as a number for DynamoDB. To force a value to be treated as a string, wrap it in quotes, for example: <code>{"42"}</code>.</p>
+<p>Note: the property name is an unmapped schema property name and not a mapped attribute name.</p>
+<p>The use of <code>@{}</code> substitutions is required when using <code>list_append</code>.</p>
+<p>See also <a href="../where/">Where Clauses</a> for using Filter Expressions with similar syntax.</p>
+<p>See the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.html">AWS Update Expression Reference</a> for more details.</p>
 
 
 
@@ -2893,10 +2860,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.share", "search.suggest", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
      
-      <script src="../../../../assets/javascripts/bundle.7ce0e818.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.7ce0e818.min.js"></script>
       
      
   </body>
