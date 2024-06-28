@@ -121,7 +121,7 @@ The results returned will include hidden properties as they are needed to group 
 
     async find(modelName, properties, params = {})
 
-Find an item in the database of the given model `modelName` as defined in the table schema. Wraps the `Model.find` API. See [Model.find](../model/methods/#find) for details.
+Find an item in the database of the given model `modelName` as defined in the table schema. Wraps the `Model.find` API. See [Model.find](../../model/methods/#find) for details.
 
 
 ## get

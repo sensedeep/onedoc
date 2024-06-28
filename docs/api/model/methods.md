@@ -40,9 +40,11 @@ The optional params are described in [Model API Params](../params).
 
 Find items in the database. This API wraps the DynamoDB `query` method.
 
-The `properties` parameter is a Javascript hash containing the required keys or fields that are used to determine the primary key or keys.
+The `properties` parameter is a Javascript hash containing the required keys or fields that are used to determine the primary key or keys. 
 
-The sort key may be defined as a simple value or as a key condition by setting the property to an object that defines the condition. The condition operator is specified as the key, and the operand as the value. For example:
+When using value templates for key fields, it is preferable to use non-key properties and rely on OneTable to compute the key fields.
+
+If provided, the sort key may be defined as a simple value or as a key condition by setting the property to an object that defines the condition. The condition operator is specified as the key, and the operand as the value. For example:
 
 ```javascript
 let user = await User.find({pk, sk: {begins: 'user:john'}})
@@ -146,6 +148,8 @@ The `params.where` clause may be used to augment the filter expression. This wil
 Get an item from the database. This API wraps the DynamoDB `getItem` method.
 
 The `properties` parameter is a Javascript hash containing the required keys or fields that are used to create the primary key.
+
+When using value templates for key fields, it is preferable to use non-key properties and rely on OneTable to compute the key fields.
 
 Additional fields supplied in `properties` may be used to construct a filter expression. In this case, a `find` query is first executed to identify the item to retrieve. Superfluous property fields will be ignored.
 
