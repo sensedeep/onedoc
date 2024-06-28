@@ -2992,8 +2992,9 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>async find(properties, params = {})
 </code></pre></div></td></tr></table></div>
 <p>Find items in the database. This API wraps the DynamoDB <code>query</code> method.</p>
-<p>The <code>properties</code> parameter is a Javascript hash containing the required keys or fields that are used to determine the primary key or keys.</p>
-<p>The sort key may be defined as a simple value or as a key condition by setting the property to an object that defines the condition. The condition operator is specified as the key, and the operand as the value. For example:</p>
+<p>The <code>properties</code> parameter is a Javascript hash containing the required keys or fields that are used to determine the primary key or keys. </p>
+<p>When using value templates for key fields, it is preferable to use non-key properties and rely on OneTable to compute the key fields.</p>
+<p>If provided, the sort key may be defined as a simple value or as a key condition by setting the property to an object that defines the condition. The condition operator is specified as the key, and the operand as the value. For example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
@@ -3074,6 +3075,7 @@ When doing a find or query with a filter expression, DynamoDB may scan up to 1MB
 </code></pre></div></td></tr></table></div>
 <p>Get an item from the database. This API wraps the DynamoDB <code>getItem</code> method.</p>
 <p>The <code>properties</code> parameter is a Javascript hash containing the required keys or fields that are used to create the primary key.</p>
+<p>When using value templates for key fields, it is preferable to use non-key properties and rely on OneTable to compute the key fields.</p>
 <p>Additional fields supplied in <code>properties</code> may be used to construct a filter expression. In this case, a <code>find</code> query is first executed to identify the item to retrieve. Superfluous property fields will be ignored.</p>
 <p>The <code>get</code> method returns Javascript properties for the item after applying any schema mappings. Hidden attributes will not be returned.</p>
 <p>The optional params are fully described in <a href="../params">Model API Params</a>. Some relevant params include:</p>
