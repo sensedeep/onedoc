@@ -3,14 +3,14 @@ The `schema.models` property contains one or more models with attribute field de
 ```javascript
 {
     album: {
-        pk:     { type: String, value: '${_type}:${name}' },
-        sk:     { type: String, value: '${_type}:' },
+        pk:     { type: String, value: '${_type}#${name}' },
+        sk:     { type: String, value: '${_type}#' },
         name:   { type: String, required: true },
         songs:  { type: Number },
     },
     artist: {
-        pk:     { type: String, value: '${_type}:${name}' },
-        sk:     { type: String, value: '${_type}:' },
+        pk:     { type: String, value: '${_type}#${name}' },
+        sk:     { type: String, value: '${_type}#' },
         name:   { type: String, required: true },
         addresses: {
             type: Array, default: [], items: {

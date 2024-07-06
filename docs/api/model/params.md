@@ -23,6 +23,7 @@ These are the parameter values for the `params` argument.
 | limit | `number` | Set to the maximum number of items to return from a find / scan.|
 | log | `boolean` | Set to true to force the API call to be logged at the 'data' level. Requires that a 'logger' be defined via the Table constructor. Defaults to false.|
 | many | `boolean` | Set to true to enable deleting multiple items. Default to false.|
+| noerror | `boolean` | Sto to true to suppress some logginer errors. Defaults to false.|
 | next | `object` | Starting key for the result set. This is used to set the ExclusiveStartKey when doing a find/scan. Typically set to the result.next value returned on a previous find/scan. |
 | prev | `object` | Starting key for the result set when requesting a previous page. This is used to set the ExclusiveStartKey when doing a find/scan in reverse order. Typically set to the result.prev value returned on a previous find/scan.|
 | parse | `boolean` | Parse DynamoDB response into native Javascript properties. Defaults to true.|

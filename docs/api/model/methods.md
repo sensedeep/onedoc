@@ -82,7 +82,7 @@ If `find` is called without a sort key on a model that has a sort key value temp
 
 ```javascript
 Card: {
-    sk: { type: String, value: 'card:${id}' }
+    sk: { type: String, value: 'card#${id}' }
 }
 ```
 

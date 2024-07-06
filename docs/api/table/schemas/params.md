@@ -6,6 +6,7 @@ The `schema.params` is a hash map of properties that control how data is stored.
 | hidden | `boolean` | Hide templated (value) attributes in Javascript properties. Default true. |
 | isoDates | `boolean` | Set to true to store dates as Javascript ISO strings vs epoch numerics. Default false. |
 | nulls | `boolean` | Store nulls in database attributes vs remove attributes set to null. Default false. |
+| separator | `string` | Define the field separator used in value templates. This is only used by OneTable for encoded fields, but is generally useful for tools to understand value templates. |
 | timestamps | `boolean | string` | Make "created" and "updated" timestamps in items. Set to true to create both. Set to 'create' for only "created" timestamp and set to "update" for only an "updated" timestamp. See below for more details. Also see: "updatedField" and "createdField" properties. Default false. |
 | typeField | `string` | Name of the "type" attribute. Default "_type". |
 | updatedField | `string` | Name of the "updated" timestamp attribute. Default "updated". |
@@ -16,6 +17,7 @@ For example:
 const MySchema = {
     params: {
         isoDates: true,
+        separator: '#',
         timestamps: true,
     }
 }

@@ -11,7 +11,7 @@ const MySchema = {
     ...
     models: {
         Account: {
-            pk:    { type: String, value: 'account:${name}' },
+            pk:    { type: String, value: 'account#${name}' },
             name:  { type: String },
         }
     } as const     // Required for TypeScript

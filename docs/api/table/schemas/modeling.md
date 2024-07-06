@@ -14,21 +14,21 @@ const MySchema = {
     },
     models: {
         Account: {
-            pk:          { type: String, value: 'account:${name}' },
-            sk:          { type: String, value: 'account:' },
+            pk:          { type: String, value: 'account#${name}' },
+            sk:          { type: String, value: 'account#' },
             id:          { type: String, generate: 'ulid',
                            validate: /^[0123456789ABCDEFGHJKMNPQRSTVWXYZ]{26}$/i },
-            name:        { type: String, required: true },
+            name:        { type: String, required: true, encode: 'pk' },
             status:      { type: String, default: 'active' },
             zip:         { type: String },
         },
         User: {
-            pk:          { type: String, value: 'account:${accountName}' },
-            sk:          { type: String, value: 'user:${email}',
+            pk:          { type: String, value: 'account#${accountName}' },
+            sk:          { type: String, value: 'user#${email}',
                            validate: EmailRegExp },
             id:          { type: String, required: true },
-            accountName: { type: String, required: true },
-            email:       { type: String, required: true },
+            accountName: { type: String, required: true, encode: 'pk' },
+            email:       { type: String, required: true, encode: 'sk' },
             firstName:   { type: String, required: true },
             lastName:    { type: String, required: true },
             username:    { type: String, required: true },
@@ -36,12 +36,13 @@ const MySchema = {
                            default: 'user' },
             balance:     { type: Number, default: 0 },
 
-            gs1pk:       { type: String, value: 'user-email:${email}' },
-            gs1sk:       { type: String, value: 'user:' },
+            gs1pk:       { type: String, value: 'user-email#${email}' },
+            gs1sk:       { type: String, value: 'user#' },
         }
     },
     params: {
         'isoDates': true,
+        'separator': '#',
         'timestamps': true,
     },
 }
@@ -91,14 +92,14 @@ The schema defines a model for each application entity. For example:
 ```javascript
 {
     album: {
-        pk:     { type: String, value: '${_type}:${name}' },
-        sk:     { type: String, value: '${_type}:' },
+        pk:     { type: String, value: '${_type}#${name}' },
+        sk:     { type: String, value: '${_type}#' },
         name:   { type: String, required: true },
         songs:  { type: Number },
     },
     artist: {
-        pk:     { type: String, value: '${_type}:${name}' },
-        sk:     { type: String, value: '${_type}:' },
+        pk:     { type: String, value: '${_type}#${name}' },
+        sk:     { type: String, value: '${_type}#' },
         name:   { type: String, required: true },
         address: {
             type: Object, schema: {

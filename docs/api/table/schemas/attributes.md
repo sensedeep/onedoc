@@ -25,16 +25,20 @@ The following attribute properties are supported:
 | value | `string` | Template to derive the value of the attribute. These attributes are "hidden" by default. |
 
 
+## Default
+
 If the `default` property defines the default value for an attribute. If no value is provided for the attribute when creating a new item, the `default` value will be used.
+
+## Encode
 
 The `encode` property defines how an attribute is encoded in a value template. It is useful to save redundantly storing attributes separately when they are encoded into other attribute via value templates. If you have an attribute that is used in value template, it is redundant to store that attribute separately. For example:
 
 ```
 User: {
-    pk:              { type: 'string', value: 'account#${accountId}' },
-    sk:              { type: 'string', value: 'user#${id}' },
+    pk:        { type: 'string', value: 'account#${accountId}' },
+    sk:        { type: 'string', value: 'user#${id}' },
     accountId: { type: 'string', generate: 'uid' },
-    id:              { type: 'string', generate: 'uid' },
+    id:        { type: 'string', generate: 'uid' },
 }
 ```
 
@@ -42,26 +46,50 @@ In this example, the accountId and user ID are encoded in the PK and SK and are 
 
 ```
 User: {
-    pk:              { type: 'string', value: 'account#${accountId}' },
-    sk:              { type: 'string', value: 'user#${id}' },
-    accountId: { type: 'string', generate: 'uid', encode: ['pk', '#', 1] },
-    id:              { type: 'string', generate: 'uid', encode: ['sk', '#', 1] },
+    pk:        { type: 'string', value: 'account#${accountId}' },
+    sk:        { type: 'string', value: 'user#${id}' },
+    accountId: { type: 'string', generate: 'uid', encode: 'pk' },
+    id:        { type: 'string', generate: 'uid', encode: 'sk' },
 }
 ```
 
-The encode property value is an array with three components. It specifies the attribute name encoding the property, what is the separator delimiting the portions of the value template and the index of the attribute (when split at the delimiters). i.e. the accountId is encoded in **pk** attribute and the **accountId** is found at the 1st embedded component in the pk. When data items are create or queried, you can provide and access the encoded property via named references. i.e. The encoding is transparent.
+The encode property references the attribute that encodes the nominated field. To use encoding, you must define your separator in the Schema params.separator. 
+
+If your value template has embeddings that are ambiguous or different separators, you can also define the encode property as an array with three components. The array specifies the attribute name encoding the property, what is the separator delimiting the portions of the value template and the index of the attribute (when split at the delimiters). For example:
+
+```
+accountId: { type: 'string', generate: 'uid', encode: ['pk', '#', 1] }
+```
+
+In this exmample, the accountId is encoded in **pk** attribute and the **accountId** is found at the 1st embedded component in the pk. 
+
+NOTE: When data items are create or queried, you can provide and access the encoded property via named references. i.e. The encoding is transparent.
+
+## Generate
 
 The `generate` property will generate an attribute value when creating new items. If set to 'uuid', then a non-crypto grade UUIDv4 format ID will be generated. If set to ULID, a crypto-grade, time-sortable random ID will be created. If set to 'uid' a shorter 10 character ID will be created.
 
-You can also use and "generate: 'uid(NN)'" to generate shorter, less unique identifiers. A UID by default is ten letters long and supports a similar charset as the ULID (Uppercase and digits, base 32 excluding I, L, O and U.). So a 10 character UID is 32^10 which is over 1 quintillion possibilities. You can supply the length to the generate value to get an arbitrary length. For example: generate: 'uid(16)'
+You can also use and **generate: 'uid(NN)'** to generate shorter, less unique identifiers. A UID by default is ten letters long and supports a similar charset as the ULID (Uppercase and digits, base 32 excluding I, L, O and U.). So a 10 character UID is 32^10 which is over 1 quintillion possibilities. You can supply the length to the generate value to get an arbitrary length. For example: 
+
+```
+generate: 'uid(16)'
+```
+
+## Hidden
 
 If the `hidden` property is set to true, the attribute will be defined in the DynamoDB database table, but will be omitted in the returned Javascript results.
 
+## IsoDates
+
 If the `isoDates` property is defined and not-null, it will override the table isoDates value. Set to true to store the field date value as an ISO date string. Set to false to store the date as a Unix epoch date number.
+
+## Map
 
 The `map` property can be used to set an alternate or shorter attribute name when storing in the database. The map value may be a simple string that will be used as the actual attribute name.
 
 Alternatively, the map value can be a pair of the form: 'obj.name', where the attribute value will be stored in an object attribute named "obj" with the given name `name`. Such two-level mappings may be used to map multiple properties to a single table attribute. This is helpful for the design pattern where GSIs project keys plus a single 'data' field and have multiple models map relevant attributes into the projected 'data' attribute. OneTable will automatically pack and unpack attribute values into the mapped attribute. Note: APIs that write to a mapped attribute must provide all the properties that map to that attribute on the API call. Otherwise an incomplete attribute would be written to the table.
+
+## Reference
 
 The `reference` attribute documents a reference to another entity by using this attribute in combination with other attributes. The format is:
 
@@ -71,13 +99,23 @@ model:index:attribute=source-attribute,...
 
 The "model" selects that target entity model of the reference using the nominated "index" where the target "attribute" is determined by the associated source-attribute. Multiple attributes can be specified. Tools can use this reference to navigate from one entity item to another.
 
+## Schema
+
 The `schema` property permits nested field definitions. The parent property must be an Object as the type of items in arrays are defined using the `items` property.
+
+## TTL
 
 The `ttl` property supports DynamoDB TTL expiry attributes. Set to true to store a supplied date value as a Unix epoch in seconds suitable for use as a DynamoDB TTL attribute.
 
+## Type
+
 The `type` properties defines the attribute data type. Valid types include: String, Number, Boolean, Date, Object, Null, Array, Buffer (or Binary) and Set. The object type is mapped to a `map`, the array type is mapped to a `list`. Dates are stored as Unix numeric epoch date stamps unless the `isoDates` parameter is true, in which case the dates are store as ISO date strings. Binary data is supplied via `buffer` types and is stored as base64 strings in DynamoDB.
 
+## Validate
+
 The `validate` property defines a regular expression that is used to validate data before writing to the database. Highly recommended.
+
+## Value Templates
 
 The `value` property defines a literal string template that is used to compute the attribute value. This is useful for computing key values from other properties, creating compound (composite) sort keys or for packing fields into a single DynamoDB attribute when using GSIs.
 
