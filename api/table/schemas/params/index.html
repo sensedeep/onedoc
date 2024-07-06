@@ -2780,6 +2780,11 @@
 <td>Store nulls in database attributes vs remove attributes set to null. Default false.</td>
 </tr>
 <tr>
+<td>separator</td>
+<td align="center"><code>string</code></td>
+<td>Define the field separator used in value templates. This is only used by OneTable for encoded fields, but is generally useful for tools to understand value templates.</td>
+</tr>
+<tr>
 <td>timestamps</td>
 <td align="center"><code>boolean | string</code></td>
 <td>Make "created" and "updated" timestamps in items. Set to true to create both. Set to 'create' for only "created" timestamp and set to "update" for only an "updated" timestamp. See below for more details. Also see: "updatedField" and "createdField" properties. Default false.</td>
@@ -2802,12 +2807,14 @@
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
 <span class="normal"><a href="#__codelineno-0-4">4</a></span>
 <span class="normal"><a href="#__codelineno-0-5">5</a></span>
-<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">MySchema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">MySchema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nx">params</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">        </span><span class="nx">isoDates</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">        </span><span class="nx">timestamps</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">}</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">        </span><span class="nx">separator</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#&#39;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="nx">timestamps</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="timestamps">Timestamps</h2>
 <p>Created and updated timestamps can be automatically added to items. If the schema timestamps param is set to true, a <code>created</code> and <code>updated</code> date timestamp will be added to items during <strong>create</strong> or <strong>update</strong> API calls. </p>
