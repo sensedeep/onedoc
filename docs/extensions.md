@@ -20,3 +20,7 @@ The [OneTable CLI](https://www.npmjs.com/package/onetable-cli) which provides co
 The [SenseDeep](https://www.sensedeep.com/) Serverless Developer Studio includes a powerful collection of DynamoDB tools with single-table aware data browser, designer, provisioning planner, migration manager and metrics.
 
 The SenseDeep studio can be used to create OneTable schemas and to manage DynamoDB tables hosting single-table data.
+
+## Zod to OneTable
+
+You can sync and integrate existing `zod` schemas with OneTable by generating whole models or partial model fields using the [Zod to OneTable](https://www.npmjs.com/package/zod-to-dynamodb-onetable-schema) package.
